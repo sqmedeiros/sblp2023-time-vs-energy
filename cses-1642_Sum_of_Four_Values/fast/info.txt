@@ -1,0 +1,2 @@
+* Solution https://cses.fi/problemset/hack/1642/entry/5830242/
+  was discarded because it uses C++20

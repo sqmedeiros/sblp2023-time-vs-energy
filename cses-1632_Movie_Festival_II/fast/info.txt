@@ -1,0 +1,129 @@
+Problemas ao compilar:
+https://cses.fi/problemset/hack/1632/entry/724706
+
+g++ entry_724706.cpp -o entry_724706.exe -DONLINE_JUDGE -std=c++17 -O2
+entry_724706.cpp:57:1: error: reference to ‘data’ is ambiguous
+ data a[2*N];
+ ^~~~
+entry_724706.cpp:54:8: note: candidates are: struct data
+ struct data{
+        ^~~~
+In file included from /usr/include/c++/7/string:51:0,
+                 from /usr/include/c++/7/bits/locale_classes.h:40,
+                 from /usr/include/c++/7/bits/ios_base.h:41,
+                 from /usr/include/c++/7/ios:42,
+                 from /usr/include/c++/7/istream:38,
+                 from /usr/include/c++/7/sstream:38,
+                 from /usr/include/c++/7/complex:45,
+                 from /usr/include/c++/7/ccomplex:39,
+                 from /usr/include/x86_64-linux-gnu/c++/7/bits/stdc++.h:52,
+                 from entry_724706.cpp:2:
+/usr/include/c++/7/bits/range_access.h:318:5: note:                 template<class _Tp> constexpr const _Tp* std::data(std::initializer_list<_Tp>)
+     data(initializer_list<_Tp> __il) noexcept
+     ^~~~
+/usr/include/c++/7/bits/range_access.h:309:5: note:                 template<class _Tp, long unsigned int _Nm> constexpr _Tp* std::data(_Tp (&)[_Nm])
+     data(_Tp (&__array)[_Nm]) noexcept
+     ^~~~
+/usr/include/c++/7/bits/range_access.h:299:5: note:                 template<class _Container> constexpr decltype (__cont.data()) std::data(const _Container&)
+     data(const _Container& __cont) noexcept(noexcept(__cont.data()))
+     ^~~~
+/usr/include/c++/7/bits/range_access.h:289:5: note:                 template<class _Container> constexpr decltype (__cont.data()) std::data(_Container&)
+     data(_Container& __cont) noexcept(noexcept(__cont.data()))
+     ^~~~
+entry_724706.cpp: In function ‘void readinp()’:
+entry_724706.cpp:67:9: error: ‘a’ was not declared in this scope
+         a[++T] = {x, +1, i};
+         ^
+entry_724706.cpp: At global scope:
+entry_724706.cpp:72:12: error: reference to ‘data’ is ambiguous
+ bool cmp1 (data t1, data t2){
+            ^~~~
+entry_724706.cpp:54:8: note: candidates are: struct data
+ struct data{
+        ^~~~
+In file included from /usr/include/c++/7/string:51:0,
+                 from /usr/include/c++/7/bits/locale_classes.h:40,
+                 from /usr/include/c++/7/bits/ios_base.h:41,
+                 from /usr/include/c++/7/ios:42,
+                 from /usr/include/c++/7/istream:38,
+                 from /usr/include/c++/7/sstream:38,
+                 from /usr/include/c++/7/complex:45,
+                 from /usr/include/c++/7/ccomplex:39,
+                 from /usr/include/x86_64-linux-gnu/c++/7/bits/stdc++.h:52,
+                 from entry_724706.cpp:2:
+/usr/include/c++/7/bits/range_access.h:318:5: note:                 template<class _Tp> constexpr const _Tp* std::data(std::initializer_list<_Tp>)
+     data(initializer_list<_Tp> __il) noexcept
+     ^~~~
+/usr/include/c++/7/bits/range_access.h:309:5: note:                 template<class _Tp, long unsigned int _Nm> constexpr _Tp* std::data(_Tp (&)[_Nm])
+     data(_Tp (&__array)[_Nm]) noexcept
+     ^~~~
+/usr/include/c++/7/bits/range_access.h:299:5: note:                 template<class _Container> constexpr decltype (__cont.data()) std::data(const _Container&)
+     data(const _Container& __cont) noexcept(noexcept(__cont.data()))
+     ^~~~
+/usr/include/c++/7/bits/range_access.h:289:5: note:                 template<class _Container> constexpr decltype (__cont.data()) std::data(_Container&)
+     data(_Container& __cont) noexcept(noexcept(__cont.data()))
+     ^~~~
+entry_724706.cpp:72:21: error: reference to ‘data’ is ambiguous
+ bool cmp1 (data t1, data t2){
+                     ^~~~
+entry_724706.cpp:54:8: note: candidates are: struct data
+ struct data{
+        ^~~~
+In file included from /usr/include/c++/7/string:51:0,
+                 from /usr/include/c++/7/bits/locale_classes.h:40,
+                 from /usr/include/c++/7/bits/ios_base.h:41,
+                 from /usr/include/c++/7/ios:42,
+                 from /usr/include/c++/7/istream:38,
+                 from /usr/include/c++/7/sstream:38,
+                 from /usr/include/c++/7/complex:45,
+                 from /usr/include/c++/7/ccomplex:39,
+                 from /usr/include/x86_64-linux-gnu/c++/7/bits/stdc++.h:52,
+                 from entry_724706.cpp:2:
+/usr/include/c++/7/bits/range_access.h:318:5: note:                 template<class _Tp> constexpr const _Tp* std::data(std::initializer_list<_Tp>)
+     data(initializer_list<_Tp> __il) noexcept
+     ^~~~
+/usr/include/c++/7/bits/range_access.h:309:5: note:                 template<class _Tp, long unsigned int _Nm> constexpr _Tp* std::data(_Tp (&)[_Nm])
+     data(_Tp (&__array)[_Nm]) noexcept
+     ^~~~
+/usr/include/c++/7/bits/range_access.h:299:5: note:                 template<class _Container> constexpr decltype (__cont.data()) std::data(const _Container&)
+     data(const _Container& __cont) noexcept(noexcept(__cont.data()))
+     ^~~~
+/usr/include/c++/7/bits/range_access.h:289:5: note:                 template<class _Container> constexpr decltype (__cont.data()) std::data(_Container&)
+     data(_Container& __cont) noexcept(noexcept(__cont.data()))
+     ^~~~
+entry_724706.cpp:72:28: error: expression list treated as compound expression in initializer [-fpermissive]
+ bool cmp1 (data t1, data t2){
+                            ^
+entry_724706.cpp: In function ‘void solve()’:
+entry_724706.cpp:81:10: error: ‘a’ was not declared in this scope
+     sort(a + 1, a + 1 + n, cmp1);
+          ^
+entry_724706.cpp:94:57: error: no matching function for call to ‘std::priority_queue<std::pair<int, int> >::push(<brace-enclosed initializer list>)’
+         if (a[i].t == 1) Q.push({A[a[i].id].se, a[i].id});
+                                                         ^
+In file included from /usr/include/c++/7/queue:64:0,
+                 from /usr/include/x86_64-linux-gnu/c++/7/bits/stdc++.h:86,
+                 from entry_724706.cpp:2:
+/usr/include/c++/7/bits/stl_queue.h:595:7: note: candidate: void std::priority_queue<_Tp, _Sequence, _Compare>::push(const value_type&) [with _Tp = std::pair<int, int>; _Sequence = std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >; _Compare = std::less<std::pair<int, int> >; std::priority_queue<_Tp, _Sequence, _Compare>::value_type = std::pair<int, int>]
+       push(const value_type& __x)
+       ^~~~
+/usr/include/c++/7/bits/stl_queue.h:595:7: note:   no known conversion for argument 1 from ‘<brace-enclosed initializer list>’ to ‘const value_type& {aka const std::pair<int, int>&}’
+/usr/include/c++/7/bits/stl_queue.h:603:7: note: candidate: void std::priority_queue<_Tp, _Sequence, _Compare>::push(std::priority_queue<_Tp, _Sequence, _Compare>::value_type&&) [with _Tp = std::pair<int, int>; _Sequence = std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >; _Compare = std::less<std::pair<int, int> >; std::priority_queue<_Tp, _Sequence, _Compare>::value_type = std::pair<int, int>]
+       push(value_type&& __x)
+       ^~~~
+/usr/include/c++/7/bits/stl_queue.h:603:7: note:   no known conversion for argument 1 from ‘<brace-enclosed initializer list>’ to ‘std::priority_queue<std::pair<int, int> >::value_type&& {aka std::pair<int, int>&&}’
+entry_724706.cpp:98:44: error: no matching function for call to ‘std::priority_queue<std::pair<int, int> >::push(<brace-enclosed initializer list>)’
+             Q.push({A[a[i].id].se, a[i].id});
+                                            ^
+In file included from /usr/include/c++/7/queue:64:0,
+                 from /usr/include/x86_64-linux-gnu/c++/7/bits/stdc++.h:86,
+                 from entry_724706.cpp:2:
+/usr/include/c++/7/bits/stl_queue.h:595:7: note: candidate: void std::priority_queue<_Tp, _Sequence, _Compare>::push(const value_type&) [with _Tp = std::pair<int, int>; _Sequence = std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >; _Compare = std::less<std::pair<int, int> >; std::priority_queue<_Tp, _Sequence, _Compare>::value_type = std::pair<int, int>]
+       push(const value_type& __x)
+       ^~~~
+/usr/include/c++/7/bits/stl_queue.h:595:7: note:   no known conversion for argument 1 from ‘<brace-enclosed initializer list>’ to ‘const value_type& {aka const std::pair<int, int>&}’
+/usr/include/c++/7/bits/stl_queue.h:603:7: note: candidate: void std::priority_queue<_Tp, _Sequence, _Compare>::push(std::priority_queue<_Tp, _Sequence, _Compare>::value_type&&) [with _Tp = std::pair<int, int>; _Sequence = std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >; _Compare = std::less<std::pair<int, int> >; std::priority_queue<_Tp, _Sequence, _Compare>::value_type = std::pair<int, int>]
+       push(value_type&& __x)
+       ^~~~
+/usr/include/c++/7/bits/stl_queue.h:603:7: note:   no known conversion for argument 1 from ‘<brace-enclosed initializer list>’ to ‘std::priority_queue<std::pair<int, int> >::value_type&& {aka std::pair<int, int>&&}’
+

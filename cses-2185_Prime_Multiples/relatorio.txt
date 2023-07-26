@@ -1,0 +1,16 @@
+2185-HPELITE-O0.csv
+Coeficiente R2: 0.9968415148252124
+Coeficiente Spearman: 0.9830923248053393
+	interesse high: entry_5453782.exe . Acima
+	interesse high: entry_5029563.exe . Abaixo
+2185-HPELITE-O2.csv
+Coeficiente R2: 0.9831457905933697
+Coeficiente Spearman: 0.9830923248053393
+	interesse medium: entry_5029563.exe . Abaixo
+	interesse high: entry_2875325.exe . Acima
+	interesse high: entry_1803841.exe . Acima
+2185-HPELITE-Os.csv
+Coeficiente R2: 0.9950917073305866
+Coeficiente Spearman: 0.9924360400444939
+	interesse high: entry_5029563.exe . Abaixo
+	interesse high: entry_1803841.exe . Acima

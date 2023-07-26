@@ -1,0 +1,28 @@
+1643-HPELITE-O0.csv
+Coeficiente R2: 0.9914345054187064
+Coeficiente Spearman: 0.9951056729699667
+	interesse high: entry_3844007.exe . Acima
+	interesse high: entry_3638005.exe . Abaixo
+1643-HPELITE-O2.csv
+Coeficiente R2: 0.9930550910274435
+Coeficiente Spearman: 0.9666295884315906
+	interesse high: entry_3844007.exe . Acima
+	interesse high: entry_3638005.exe . Abaixo
+	interesse high: entry_4464596.exe . Acima
+1643-HPELITE-Os.csv
+Coeficiente R2: 0.9897801123550188
+Coeficiente Spearman: 0.9915461624026697
+	interesse high: entry_3844007.exe . Acima
+	interesse high: entry_650248.exe . Abaixo
+	interesse high: entry_4464596.exe . Acima
+1643-HPTHINK-O0.csv
+Coeficiente R2: 0.9986251957444453
+Coeficiente Spearman: 0.9933259176863182
+	interesse low: entry_3638005.exe . Abaixo
+	interesse high: entry_3844007.exe . Acima
+	interesse high: entry_650248.exe . Abaixo
+1643-HPTHINK-O2.csv
+Coeficiente R2: 0.9989902954900731
+Coeficiente Spearman: 0.9919911012235818
+	interesse low: entry_3638005.exe . Abaixo
+	interesse high: entry_4464596.exe . Acima
