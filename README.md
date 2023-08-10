@@ -4,7 +4,7 @@
 
 This repository contains the source code of C++ solutions mined from the Code Submission Evaluation System (CSES).
 
-It contains folders related to 15 different CSES problems, where each folder contains 30 different C++ solutions. The complete list of CSES problems is available in [CSES_problems](/CSES_problems).
+It contains folders related to 15 different CSES problems, where each folder contains 30 different C++ solutions. The complete list of CSES problems is available in [CSES_problems](/CSES_problems.md).
 
 ## Folder structure and how to compile/run the files
 
