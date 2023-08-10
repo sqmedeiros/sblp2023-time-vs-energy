@@ -21,20 +21,58 @@ Each folder related to a CSES problem has a `Makefile`, a subfolder `test`, with
 Subfolder `slow` has the 10 slowest C++ solutions, while subfolder `fast` has the 10 fastest ones,
 and subfolder `lang` has 10 C++ solutions chosen at random.
 
+Moreover, in the folder of each CSES problem there are the following files related to energy measurements
+performed in two different machines (*HPTHINK* and *HPELITE*) by using different C++ flags (-O0, -O2 and -Os):
+- 1621-HPELITE-O0.csv
+- 1621-HPELITE-O2.csv
+- 1621-HPELITE-Os.csv
+- 1621-HPTHINK-O0.csv
+- 1621-HPTHINK-O2.csv
+- 1621-HPTHINK-Os.csv
 
 
-### Compiling/Running
+### Compiling/Running the C++ Solutions
+
+The files in this repository were compiled in a Linux/Ubuntu environment
+using versions of the `g++` compiler with support to the **C++17** standard.
 
 To start measuring the time/energy of the CSES solutions, the first step is to compile the measurement framework.
 You should enter the `RAPL` folder and type `make`.
 
-After this, you should enter a folder related to a CSES problem and type `make`.
-This will compile and run all solutions in the associated `slow`, `fast` and `lang` subfolders.
+After this, you should enter a folder related to a CSES problem (e.g., *cses-1084_Apartments*) and type `make`.
+This will compile and run all solutions for the given problem in the associated `slow`, `fast` and `lang` subfolders.
 
-After typing `make`, the following command will also be executed:
+After compiling a solution, and before running it, the following command will also be executed:
 ```
 sudo modprobe msr
 ```
+
+Such command enables us to read the RAPL energy measurements.
+
+When executing the outermost `Makefile` of a given problem, each solution of each subfolder
+(`slow`, `fast` and `lang`) will be compiled and then executed for each test file of the
+corresponding `test` subfolder. By default, we will run each solution ten times against
+the corresponding testset.
+
+The energy measurements of the solutions for a given problem will be stored in a .csv file
+whose name can be configured by changing the value of the variable `PROBLEM` in the
+first line of the corresponding outermost `Makefile`. By default, the results for a problem whose
+number is X will be saved in a file `X.csv`. For example, the energy measurements for
+*cses-1084_Apartments* will be stored in a file `1084.csv`.
+
+Each line of the .csv containg six columns related to the following information:
+
+Name of the executable file , PKG (Joules) , CPU (J) , GPU (J) , DRAM (J) , Time (ms)
+
+RAPL will also report values for the columns PKG and CPU, but the measurements related
+to GPU and DRAM may not be available in some machines.
+
+
+
+
+### Using the Analysis Script
+
+
 
 
 ## Suggested Reading 
@@ -46,6 +84,7 @@ The paper below discusses an experiment based on the data available in this repo
 
 ## Contact
 
-You can contact [@Sérgio Medeiros](http://github.com/sqmedeiros) about this repository.
+You can contact [@Sérgio Medeiros](http://github.com/sqmedeiros)
+and [@Marcelo Nogueira](https://github.com/borgesnogueira) about this repository.
 
 
