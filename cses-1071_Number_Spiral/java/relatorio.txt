@@ -1,4 +1,0 @@
-1071-HPELITE-java.csv
-Coeficiente R2: 0.8850813619955287
-Coeficiente Spearman: 0.793939393939394
-	interesse medium: entry_1264518 . Acima

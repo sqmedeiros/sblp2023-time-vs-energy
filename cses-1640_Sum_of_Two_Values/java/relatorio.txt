@@ -1,5 +1,0 @@
-1640-HPELITE-java.csv
-Coeficiente R2: 0.9864197918099806
-Coeficiente Spearman: 0.9541713014460511
-	interesse high: entry_4645671 . Abaixo
-	interesse high: entry_4792408 . Abaixo

@@ -5,8 +5,8 @@ export TEST = ../test/entry02.txt ../test/entry03.txt ../test/entry04.txt
 
 all:
 	+$(MAKE) -C fast
-	+$(MAKE) -C lang
+	+$(MAKE) -C rand
 	+$(MAKE) -C slow
 
 clean:
-	rm fast/*.exe lang/*.exe slow/*.exe
+	rm fast/*.exe rand/*.exe slow/*.exe
