@@ -25,7 +25,7 @@ arquivos = sys.argv
 narq = len(arquivos)
 
 if  narq < 2: #o primeiro argumento é o nome do proprio script
-    print('passar argumento na linha de comando')
+    print('usage: analisacsv file1_machine1.csv file2_machine1.csv ... file1_machine2.csv file2_machine2.csv...')
     exit()          
     
 cores = ['b','r','g','m','k','c','y']
@@ -304,45 +304,46 @@ for i in range(len(slopes)):
     file.write('\n')
 
 #achar ouliers de interesse (supoes que passou 2*n solucoes rodadas em 2 maquinas diferentes)
-print('Busca por ouliers')
-file.write('\nBusca por ouliers\n')
-primeiro=1
-for i in range(int(3*(narq-1)/2)):
-    #print(i)
-    ind = indsel[i]
-    if i%3==0:
-        primeiro = 1
-    if len(ind)!=0: 
-        if i%3==0: #achou um low na primeira maquina
-            for j in range(len(ind)):
-                k = ind[j]
-                if k in indsel[int(3*(narq-1)/2)+i+1] or k in indsel[int(3*(narq-1)/2)+i+2]:
-                    if primeiro:
-                        print(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1])
-                        file.write(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1] + '\n')
-                        primeiro=0
-                    print('\t' + nomesel[i][j])
-                    file.write('\t' + nomesel[i][j]+ '\n')
-        if i%3==1: #achou um medio
-            for j in range(len(ind)):
-                k = ind[j]
-                if k in indsel[int(3*(narq-1)/2)-1+i] or k in indsel[int(3*(narq-1)/2)+i] or k in indsel[int(3*(narq-1)/2)+i+1]:
-                    if primeiro:
-                        print(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1])
-                        file.write(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1] + '\n')      
-                        primeiro=0
-                    print('\t' + nomesel[i][j])
-                    file.write('\t' + nomesel[i][j]+ '\n')
-        if i%3==2: #achou um high
-            for j in range(len(ind)):
-                k = ind[j]
-                if k in indsel[int(3*(narq-1)/2)-2+i] or k in indsel[int(3*(narq-1)/2)-1+i] or k in indsel[int(3*(narq-1)/2)+i]:
-                    if primeiro:
-                        print(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1])
-                        file.write(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1] + '\n')
-                        primeiro=0
-                    print('\t' + nomesel[i][j])
-                    file.write('\t' + nomesel[i][j]+ '\n')
+if narq>2:
+    print('Busca por ouliers')
+    file.write('\nBusca por ouliers\n')
+    primeiro=1
+    for i in range(int(3*(narq-1)/2)):
+        #print(i)
+        ind = indsel[i]
+        if i%3==0:
+            primeiro = 1
+        if len(ind)!=0: 
+            if i%3==0: #achou um low na primeira maquina
+                for j in range(len(ind)):
+                    k = ind[j]
+                    if k in indsel[int(3*(narq-1)/2)+i+1] or k in indsel[int(3*(narq-1)/2)+i+2]:
+                        if primeiro:
+                            print(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1])
+                            file.write(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1] + '\n')
+                            primeiro=0
+                        print('\t' + nomesel[i][j])
+                        file.write('\t' + nomesel[i][j]+ '\n')
+            if i%3==1: #achou um medio
+                for j in range(len(ind)):
+                    k = ind[j]
+                    if k in indsel[int(3*(narq-1)/2)-1+i] or k in indsel[int(3*(narq-1)/2)+i] or k in indsel[int(3*(narq-1)/2)+i+1]:
+                        if primeiro:
+                            print(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1])
+                            file.write(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1] + '\n')      
+                            primeiro=0
+                        print('\t' + nomesel[i][j])
+                        file.write('\t' + nomesel[i][j]+ '\n')
+            if i%3==2: #achou um high
+                for j in range(len(ind)):
+                    k = ind[j]
+                    if k in indsel[int(3*(narq-1)/2)-2+i] or k in indsel[int(3*(narq-1)/2)-1+i] or k in indsel[int(3*(narq-1)/2)+i]:
+                        if primeiro:
+                            print(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1])
+                            file.write(arquivos[int(i/3)+1] + ' e ' + arquivos[int((narq-1)/2) + int(i/3) + 1] + '\n')
+                            primeiro=0
+                        print('\t' + nomesel[i][j])
+                        file.write('\t' + nomesel[i][j]+ '\n')
 
 plt.figure(h1.number)
 plt.title('Energy Vs Time')  
