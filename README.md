@@ -84,9 +84,11 @@ auxiliary files generated during the analysis.
 
 ## Suggested Reading 
 
-The paper below discusses an experiment based on the data available in this repository:
+The paper **Analyzing the Time x Energy Relation in C++ Solutions Mined from a Programming Contest Site**,
+written by Sérgio Queiroz de Medeiros, Marcelo Borges Nogueira and Gustavo Quezado, and published on the
+27th Brazilian Symposium on Programming Languages (SBLP'2023) discusses an experiment based on the data
+available in this repository.
 
-    "Analyzing the Time x Energy Relation in C++ Solutions Mined from a Programming Contest Site", Sérgio Queiroz de Medeiros, Marcelo Borges Nogueira and Gustavo Quezado. In Proceedings of the 27th Brazilian Symposium on Programming Languages (SBLP'2023)
 
 
 ## Contact

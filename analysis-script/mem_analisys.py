@@ -126,7 +126,7 @@ primeiraLinhaCsvMedia = ["nome","exit","usage","free","allocated","definitely","
 with open(f'{nome_do_problema}_mem_{pasta}_media_{typeArq}.csv', 'a+') as stream:
     stream.write(f"{primeiraLinhaCsvMedia[0]},{primeiraLinhaCsvMedia[1]},{primeiraLinhaCsvMedia[2]},{primeiraLinhaCsvMedia[3]},{primeiraLinhaCsvMedia[4]},{primeiraLinhaCsvMedia[5]},{primeiraLinhaCsvMedia[6]},{primeiraLinhaCsvMedia[7]}\n")
 
-#subpast = ["fast","lang","slow"]
+#subpast = ["fast","rand","slow"]
 
 testes = os.listdir(f"test")
 arqtxt = []
@@ -177,7 +177,7 @@ def fastlangslow(pasta, typeArq):
 
 fastlangslow(pasta,typeArq)
 
-#fastlangslow(pasta,typeArq = "lang")
+#fastlangslow(pasta,typeArq = "rand")
 #fastlangslow(pasta,typeArq = "slow")
 
 
