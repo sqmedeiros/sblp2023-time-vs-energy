@@ -1,0 +1,31 @@
+Gordura (desvio do erro) da reta calculada:0.14079462405784315
+1071-HPTHINK-O2.csv
+Coeficiente R2: 0.9996361177583817
+Coeficiente Spearman: 0.9902113459399332
+	interesse low: entry_2160948.exe . Acima
+	interesse low: entry_3465844.exe . Acima
+
+tempos medios das solucoes:
+309.80203	
+consumo medio:
+6.56942	
+slopes:
+0.02135	
+Coeficientes R2::
+0.99964	
+Coeficientes Spearman:
+0.99021	
+Gordura (desvio do erro) da reta calculada:
+0.14079	
+
+matriz de relação de tempo medio
+informa o quanto a solucao da linha i é mais rapida que a solucao da coluna j
+1.000	
+
+matriz de relação de tempo medio e consumo (slope)
+informa o quanto a solucao da linha i consome a mais que a solucao da coluna j
+1.000	
+
+matriz de relação de tempo medio e consumo (slope)
+informa o quanto a solucao da linha i é melhor que a solucao da coluna j
+1.000	
