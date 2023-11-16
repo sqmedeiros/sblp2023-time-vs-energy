@@ -1,4 +1,4 @@
-export PROBLEM = 1071-HPTHINK-control
+export PROBLEM = 1071-HPTHINK-control-time
 export CPPFLAGS = -DONLINE_JUDGE -std=c++17 -O2
 export OUTPUT = > /dev/null 2>&1
 export TEST = ../test/entry01.txt ../test/entry02.txt
