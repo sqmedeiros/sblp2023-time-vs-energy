@@ -11,6 +11,7 @@ import pandas
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+from scipy import stats
 
 
 def mmq(x,y):
@@ -21,13 +22,30 @@ def mmq(x,y):
 def ajusteax(x,y):
     return (x*y).sum()/(x*x).sum()
 
+def mmqcompeso(x,y,stdy):
+    return (x*y* 1/(stdy**2)).sum()/(x*x* 1/(stdy**2)).sum()
+
 arquivos = sys.argv
 narq = len(arquivos)
 
 if  narq < 2: #o primeiro argumento é o nome do proprio script
-    print('usage: analisacsv file1_machine1.csv file2_machine1.csv ... file1_machine2.csv file2_machine2.csv...')
+    print('usage: analisacsv file1_machine1.csv file2_machine1.csv ... file1_machine2.csv file2_machine2.csv... ... <-wmmq> <-tsum>')
     exit()          
-    
+
+#opcao de usar mmq normal ou com peso (-wmmq)
+wmmq = False
+if '-wmmq' in arquivos:
+    wmmq = True
+    arquivos.remove('-wmmq')
+    narq = narq-1
+
+#opcao de usar a soma do tempo user + sys no lugar do tempo medido
+tsum = False
+if '-tsum' in arquivos:
+    tsum = True
+    arquivos.remove('-tsum')
+    narq = narq-1
+
 cores = ['b','r','g','m','k','c','y']
 estilos = ['.','s','+','d','o']
 nestilo = -1
@@ -75,7 +93,15 @@ for i in range(1,len(arquivos)):
     if i%7==1:
         nestilo += 1
     print('carregando ',arquivos[i])
-    df = pandas.read_csv(arquivos[i],names=['codigo', 'pkg','cpu', 'n1','n2','tempo'])
+    #carrega sem nomes de colunas pra descobrir quantas colunas tem
+    dfsemnomes = pandas.read_csv(arquivos[i])
+    ncolunas = len(dfsemnomes. columns)
+    if ncolunas == 6:
+        df = pandas.read_csv(arquivos[i],names=['codigo', 'pkg','cpu', 'n1','n2','tempo'])
+    else:
+        df = pandas.read_csv(arquivos[i],names=['codigo', 'pkg','cpu', 'n1','n2','tempo','tuser','tsys'])
+        print('mais colunas de tempo detectadas')
+
     #calcular a média e variancia das nexec execucoes de cada codigo
     nlinhas = len(df)
     j = 0
@@ -85,21 +111,30 @@ for i in range(1,len(arquivos)):
     vdconsumo = np.zeros(int(nlinhas/nexec))
     vmtempo = np.zeros(int(nlinhas/nexec))
     vdtempo = np.zeros(int(nlinhas/nexec))
+    vmtsoma = np.zeros(int(nlinhas/nexec))
+    vdtsoma = np.zeros(int(nlinhas/nexec))
     print('processando ',arquivos[i])
+    file.write('processando ' + arquivos[i] + '\n')
         
     while j < nlinhas:
         vnome.append(df.iloc[j,0])
         pkg = np.array(df.iloc[j:j+nexec,1])
         t = np.array(df.iloc[j:j+nexec,5])
+        tsomausersys = np.zeros(nexec)
+        if ncolunas == 8:
+            tuser = np.array(df.iloc[j:j+nexec,6])
+            tsys = np.array(df.iloc[j:j+nexec,7])
+            tsomausersys = tuser + tsys
         
         #ordena de acordo com o tempo para remover os dois extremos
-        dt = {'pkg': pkg, 'tempo':t}
+        dt = {'pkg': pkg, 'tempo':t, 'temposoma':tsomausersys}
         dtemp = pandas.DataFrame(data=dt)
         dtemp = dtemp.sort_values('tempo')
         dtemp.drop(labels=[0, len(dtemp)-1], axis=0, inplace=True)
         
         pkg = np.array(dtemp.iloc[:,0])
         t = np.array(dtemp.iloc[:,1])
+        tsomausersys = np.array(dtemp.iloc[:,2])
         
         #verifica se tem algum valor negativo
         if min(pkg.min(), t.min()) <= 0:
@@ -110,16 +145,21 @@ for i in range(1,len(arquivos)):
         desvioconsumo = pkg.std()
         mediatempo = t.mean()
         desviotempo = t.std()
+        mediatemposoma = tsomausersys.mean()
+        desviotemposoma = tsomausersys.std()
         vmconsumo[cont] = mediaconsumo
         vdconsumo[cont] = desvioconsumo
         vmtempo[cont] = mediatempo
         vdtempo[cont] = desviotempo
+        vmtsoma[cont] = mediatemposoma
+        vdtsoma[cont] = desviotemposoma
+        
         j = j + nexec
         cont = cont + 1
     
     print('salvando resumo de  ',arquivos[i])
 
-    d = {'nome': vnome, 'consumo_medio': vmconsumo, 'desvio_consumo':vdconsumo, 'tempo_medio':vmtempo, 'desvio_tempo':vdtempo}
+    d = {'nome': vnome, 'consumo_medio': vmconsumo, 'desvio_consumo':vdconsumo, 'tempo_medio':vmtempo, 'desvio_tempo':vdtempo, 'temposoma_medio':vmtsoma, 'desvio_temposoma':vdtsoma}
     ds = pandas.DataFrame(data=d)
     ds = ds.sort_values('nome')
     ds.to_csv('analysis_results/resumo' + arquivos[i])
@@ -127,11 +167,29 @@ for i in range(1,len(arquivos)):
     ds = pandas.DataFrame(data=d)
     ds = ds.sort_values('tempo_medio')
     ds.to_csv('analysis_results/resumo_ordenado_tempo' + arquivos[i])
-    
-    #calcula reta tendencia
-    #a,b = mmq(vmtempo, vmconsumo)
-    a = ajusteax(vmtempo,vmconsumo)
+
+    #diferença entre tempos medidos (rapl e time)
+    if ncolunas == 8:
+        verrotempo = (vmtempo - vmtsoma)**2
+        tempoRMSE = verrotempo.mean()**0.5
+        print('Root Mean Squared Error entre os tempos medidos: ', tempoRMSE)
+        file.write('Root Mean Squared Error entre os tempos medidos: ' + str(tempoRMSE) + '\n')
+
+    if tsum:
+        vmtempo = vmtsoma
+        vdtempo = vdtsoma
+
+    #calcula reta tendencia y = ax + b
     b = 0
+    #a,b = mmq(vmtempo, vmconsumo)
+
+    #calcula reta tentendia y = ax
+    if wmmq:
+        a = mmqcompeso(vmtempo, vmconsumo, vdconsumo)
+        #a = mmqcompeso(vmtempo, vmconsumo, vdconsumo*vdtempo)
+    else:
+        a = ajusteax(vmtempo, vmconsumo)
+    
     print('slope: ',a)
 
     #armazena slope e tempo medio da solucao
@@ -153,12 +211,27 @@ for i in range(1,len(arquivos)):
     #plota pontos com cores de acordo com a distancia para a reta tendencia
     verr = a*vmtempo + b -  vmconsumo #erros com sinais + e -
     #https://stats.libretexts.org/Bookshelves/Introductory_Statistics/Book%3A_Introductory_Statistics_(OpenStax)/12%3A_Linear_Regression_and_Correlation/12.07%3A_Outliers
-    sse = np.sum((verr)**2) #sum of squared erros
+    if wmmq:
+        #sse = np.sum(((verr)**2)*(1/vdconsumo))/np.mean(1/vdconsumo) #sum of weighted squared erros divided by mean of weights
+        sse = np.sum((verr)**2) #sum of squared erros
+    else:
+        sse = np.sum((verr)**2) #sum of squared erros
     desvioerro = np.sqrt(sse/(verr.size-2))
     print('Gordura (desvio do erro) da reta calculada:', desvioerro)
     file.write('Gordura (desvio do erro) da reta calculada:' + str(desvioerro) + '\n')
     gorduras.append(desvioerro)
 
+    #teste de chapiro wilk no vetor de erros para ver se segue uma distribuição normal
+    rshapwilk = stats.shapiro(verr)
+    print('Confiança de que o erro segue uma distribuição normal: ', rshapwilk)
+    file.write('Confiança de que o erro segue uma distribuição normal: ' +  str(rshapwilk) + '\n')
+    if rshapwilk.pvalue > 0.05:
+        print('\t\tSegue uma distribuição normal com confiança de 95%')
+        file.write('\t\tSegue uma distribuição normal com confiança de 95%' + '\n')
+    else:
+        print('\t\tNão podemos afirmar que segue uma distribuição normal')
+        file.write('\t\tNão podemos afirmar que segue uma distribuição normal' + '\n')
+    
     nvarr = np.sum((vmconsumo - vmconsumo.mean())**2)
     
     #coeficiente de correlacao de Pearson
@@ -267,46 +340,46 @@ for i in range(len(tempomedio)):
     file.write("\t")
     
 
-print('\n\nmatriz de relação de tempo medio')
-print('informa o quanto a solucao da linha i é mais rapida que a solucao da coluna j\n')
-file.write('\n\nmatriz de relação de tempo medio')
-file.write('\ninforma o quanto a solucao da linha i é mais rapida que a solucao da coluna j\n')
-for i in range(len(slopes)):
-    for j in range(len(slopes)):
-        print("{:.3f}".format((tempomedio[j]/tempomedio[i])),end='\t')
-        file.write("{:.3f}".format((tempomedio[j]/tempomedio[i])))
-        file.write("\t")
-    print('')
-    file.write('\n')
+if  narq != 2: #so calcula matrizes e busca outliers se recebido mais de um arquivo
+    print('\n\nmatriz de relação de tempo medio')
+    print('informa o quanto a solucao da linha i é mais rapida que a solucao da coluna j\n')
+    file.write('\n\nmatriz de relação de tempo medio')
+    file.write('\ninforma o quanto a solucao da linha i é mais rapida que a solucao da coluna j\n')
+    for i in range(len(slopes)):
+        for j in range(len(slopes)):
+            print("{:.3f}".format((tempomedio[j]/tempomedio[i])),end='\t')
+            file.write("{:.3f}".format((tempomedio[j]/tempomedio[i])))
+            file.write("\t")
+        print('')
+        file.write('\n')
 
-print('\nmatriz de relação de consumo (slope)')
-print('informa o quanto a solucao da linha i consome a mais que a solucao da coluna j\n')
-file.write('\nmatriz de relação de tempo medio e consumo (slope)')
-file.write('\ninforma o quanto a solucao da linha i consome a mais que a solucao da coluna j\n')
-for i in range(len(slopes)):
-    for j in range(len(slopes)):
-        print("{:.3f}".format((slopes[i]/slopes[j])),end='\t')
-        file.write("{:.3f}".format((slopes[i]/slopes[j])))
-        file.write("\t")
-    print('')
-    file.write('\n')
+    print('\nmatriz de relação de consumo (slope)')
+    print('informa o quanto a solucao da linha i consome a mais que a solucao da coluna j\n')
+    file.write('\nmatriz de relação de tempo medio e consumo (slope)')
+    file.write('\ninforma o quanto a solucao da linha i consome a mais que a solucao da coluna j\n')
+    for i in range(len(slopes)):
+        for j in range(len(slopes)):
+            print("{:.3f}".format((slopes[i]/slopes[j])),end='\t')
+            file.write("{:.3f}".format((slopes[i]/slopes[j])))
+            file.write("\t")
+        print('')
+        file.write('\n')
 
-print('\nmatriz de relação de tempo medio e consumo (slope)')
-print('informa o quanto a solucao da linha i é melhor que a solucao da coluna j\n')
-file.write('\nmatriz de relação de tempo medio e consumo (slope)')
-file.write('\ninforma o quanto a solucao da linha i é melhor que a solucao da coluna j\n')
-for i in range(len(slopes)):
-    for j in range(len(slopes)):
-        print("{:.3f}".format((tempomedio[j]/tempomedio[i])/(slopes[i]/slopes[j])),end='\t')
-        file.write("{:.3f}".format((tempomedio[j]/tempomedio[i])/(slopes[i]/slopes[j])))
-        file.write("\t")
-    print('')
-    file.write('\n')
+    print('\nmatriz de relação de tempo medio e consumo (slope)')
+    print('informa o quanto a solucao da linha i é melhor que a solucao da coluna j\n')
+    file.write('\nmatriz de relação de tempo medio e consumo (slope)')
+    file.write('\ninforma o quanto a solucao da linha i é melhor que a solucao da coluna j\n')
+    for i in range(len(slopes)):
+        for j in range(len(slopes)):
+            print("{:.3f}".format((tempomedio[j]/tempomedio[i])/(slopes[i]/slopes[j])),end='\t')
+            file.write("{:.3f}".format((tempomedio[j]/tempomedio[i])/(slopes[i]/slopes[j])))
+            file.write("\t")
+        print('')
+        file.write('\n')
 
-#achar ouliers de interesse (supoes que passou 2*n solucoes rodadas em 2 maquinas diferentes)
-if narq>2:
-    print('Busca por ouliers')
-    file.write('\nBusca por ouliers\n')
+    #achar ouliers de interesse (supoes que passou 2*n solucoes rodadas em 2 maquinas diferentes)
+    print('Busca por ouliers de uma mesma solucao em máquinas diferentes')
+    file.write('\nBusca por ouliers de uma mesma solucao em máquinas diferentes\n')
     primeiro=1
     for i in range(int(3*(narq-1)/2)):
         #print(i)
