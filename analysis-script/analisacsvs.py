@@ -70,7 +70,7 @@ try:
     print('cirando diretorio de resultados')
 except OSError as error:
     print('diretorio de resultados ja existe') 
-file = open("analysis_results/relatorio" + ''.join(arquivoscurtos[1:]) + ".txt", "w")
+file = open("analysis_results/relatorio" + ''.join(arquivoscurtos[0:]) + ".txt", "w")
 
 #listas com pontos de interesse
 csel = []
@@ -423,13 +423,13 @@ plt.title('Energy Vs Time')
 plt.ylabel('Energy Comsumption (J)')  
 plt.xlabel('Execution Time (ms)')
 plt.legend(loc='lower right')
-plt.savefig('analysis_results/grafico' + ''.join(arquivoscurtos[1:]) + '.pdf')  
+plt.savefig('analysis_results/grafico' + ''.join(arquivoscurtos[0:]) + '.pdf')  
 plt.figure(h2.number)
 plt.title('Outliers detected')  
 plt.ylabel('Energy Comsumption (J)')  
 plt.xlabel('Execution Time (ms)')
 plt.legend(loc='lower right')
-plt.savefig('analysis_results/outliers' + ''.join(arquivoscurtos[1:]) + '.pdf')  
+plt.savefig('analysis_results/outliers' + ''.join(arquivoscurtos[0:]) + '.pdf')  
 plt.show()
 
 file.close()
