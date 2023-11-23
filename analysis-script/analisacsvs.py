@@ -174,10 +174,9 @@ for i in range(1,len(arquivos)):
         tempoRMSE = verrotempo.mean()**0.5
         print('Root Mean Squared Error entre os tempos medidos: ', tempoRMSE)
         file.write('Root Mean Squared Error entre os tempos medidos: ' + str(tempoRMSE) + '\n')
-
-    if tsum:
-        vmtempo = vmtsoma
-        vdtempo = vdtsoma
+        if tsum:
+            vmtempo = vmtsoma
+            vdtempo = vdtsoma
 
     #calcula reta tendencia y = ax + b
     b = 0
