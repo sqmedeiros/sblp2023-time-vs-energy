@@ -164,6 +164,15 @@ for i in range(1,len(arquivos)):
     ds = ds.sort_values('nome')
     ds.to_csv('analysis_results/resumo' + arquivos[i])
 
+    #carrega novamente os valores nos vetores agora ordenado pelo nome caso os .csvs estejam em ordens diferentes (importante na analise dos ouliers)
+    vnome = np.array(ds.iloc[:,0])
+    vmconsumo = np.array(ds.iloc[:,1])
+    vdconsumo = np.array(ds.iloc[:,2])
+    vmtempo = np.array(ds.iloc[:,3])
+    vdtempo = np.array(ds.iloc[:,4])
+    vmtsoma = np.array(ds.iloc[:,5])
+    vdtsoma = np.array(ds.iloc[:,6])
+
     ds = pandas.DataFrame(data=d)
     ds = ds.sort_values('tempo_medio')
     ds.to_csv('analysis_results/resumo_ordenado_tempo' + arquivos[i])
