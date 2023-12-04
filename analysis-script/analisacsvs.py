@@ -183,6 +183,8 @@ for i in range(1,len(arquivos)):
         tempoRMSE = verrotempo.mean()**0.5
         print('Root Mean Squared Error entre os tempos medidos: ', tempoRMSE)
         file.write('Root Mean Squared Error entre os tempos medidos: ' + str(tempoRMSE) + '\n')
+        if (tempoRMSE > 10):
+            raise ValueError("Difference between times seem too large")
         if tsum:
             vmtempo = vmtsoma
             vdtempo = vdtsoma
