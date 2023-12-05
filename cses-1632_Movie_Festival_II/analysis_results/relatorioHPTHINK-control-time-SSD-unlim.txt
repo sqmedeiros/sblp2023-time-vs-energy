@@ -1,0 +1,21 @@
+processando 1632-HPTHINK-control-time-SSD-unlim.csv
+Root Mean Squared Error entre os tempos medidos: 0.6312190586476298
+Gordura (desvio do erro) da reta calculada:1.0231540134730632
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.7163851857185364, pvalue=0.0013921319041401148)
+		Não podemos afirmar que segue uma distribuição normal
+1632-HPTHINK-control-time-SSD-unlim.csv
+Coeficiente R2: 0.995063581300969
+Coeficiente Spearman: 0.9636363636363636
+
+tempos medios das solucoes:
+782.35000	
+consumo medio:
+16.41733	
+slopes:
+0.02162	
+Coeficientes R2::
+0.99506	
+Coeficientes Spearman:
+0.96364	
+Gordura (desvio do erro) da reta calculada:
+1.02315	
