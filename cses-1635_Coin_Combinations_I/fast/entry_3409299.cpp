@@ -1,5 +1,5 @@
 #pragma GCC optimize("O3,unroll-loops")
-#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+//#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
 #include<bits/stdc++.h>
 using namespace std;
 int dp[1000001], modder = 1e+9 + 7, coins[100];

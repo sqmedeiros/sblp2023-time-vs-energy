@@ -5,7 +5,7 @@
  * url:     https://cses.fi/problemset/task/1621/
  */
 #pragma GCC optimize("O3,unroll-loops")
-#pragma GCC target("avx,avx2,bmi,bmi2,popcnt,lzcnt")
+//#pragma GCC target("avx,avx2,bmi,bmi2,popcnt,lzcnt")
  
 #include <bits/stdc++.h>
 // <fastio.hpp>

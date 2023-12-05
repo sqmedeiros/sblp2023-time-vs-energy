@@ -1,5 +1,5 @@
 #pragma GCC optimize("Ofast,unloop-rolls")
-#pragma GCC target("avx2,bmi,bmi2,popcnt,lzcnt,fma,tune=native")
+//#pragma GCC target("avx2,bmi,bmi2,popcnt,lzcnt,fma,tune=native")
 #include <bits/stdc++.h>
  
 using namespace std;

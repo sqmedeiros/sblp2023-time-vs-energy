@@ -1,5 +1,5 @@
 #pragma GCC optimize("Ofast,unroll-loops")
-#pragma GCC target("avx2,bmi,bmi2,popcnt,lzcnt")
+//#pragma GCC target("avx2,bmi,bmi2,popcnt,lzcnt")
 #define NDEBUG
 #include <bits/stdc++.h>
 using namespace std;

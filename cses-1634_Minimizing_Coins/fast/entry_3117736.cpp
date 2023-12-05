@@ -2,7 +2,7 @@
  
 using namespace std;
 #pragma GCC optimize("Ofast")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization("unroll-loops")
 #define ll                long long
 #define pb                push_back

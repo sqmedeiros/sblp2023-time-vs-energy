@@ -11,7 +11,7 @@ typedef vector<int> vi;
 #define F first 
 #define S seconds
 #pragma GCC optimize("Ofast")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization ("unroll-loops")
  
  

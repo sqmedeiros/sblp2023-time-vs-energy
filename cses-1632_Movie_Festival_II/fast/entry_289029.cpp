@@ -2,7 +2,7 @@
 using namespace std;
 // GCC Optimizations
 #pragma GCC optimize("Ofast")
-#pragma GCC target("fma,sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,tune=native")
+//#pragma GCC target("fma,sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,tune=native")
 #pragma GCC optimize("unroll-loops")
 // Shortening STL container's member functions' names
 #define R(f,t)template<typename...S>inline auto t(S&&...a)->decltype(this->f(forward<S>(a)...)){return this->f(forward<S>(a)...);}

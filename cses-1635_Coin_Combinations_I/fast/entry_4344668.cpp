@@ -2,7 +2,7 @@
 #include <stdlib.h>
  
 #pragma GCC optimize("Ofast")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,avx2,fma")
  
 #include <stdio.h>
 #include <stdlib.h>

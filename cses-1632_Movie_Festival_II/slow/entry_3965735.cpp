@@ -17,7 +17,7 @@ using ll = long long;
 // #pragma GCC optimize("Ofast")
 // Can casuse floating point errors, assumes associativeness for instance
  
-#pragma GCC target("avx2")
+//#pragma GCC target("avx2")
 #pragma GCC target("popcnt,lzcnt,bmi,bmi2,tune=native")
 // #pragma GCC target("avx,fma")
 // #pragma GCC target("sse4.2,fma")

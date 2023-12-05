@@ -4,7 +4,7 @@
 using namespace std;
  
 #pragma GCC optimize("Ofast")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization ("unroll-loops")
  
 constexpr int kXmax = 1e6+1;

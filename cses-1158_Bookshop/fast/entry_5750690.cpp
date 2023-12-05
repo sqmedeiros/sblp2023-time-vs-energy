@@ -1,5 +1,5 @@
 #pragma GCC optimize("O3,unroll-loops")
-#pragma GCC target("avx,avx2,bmi,bmi2,popcnt,lzcnt")
+//#pragma GCC target("avx,avx2,bmi,bmi2,popcnt,lzcnt")
 #include <bits/stdc++.h>
 using namespace std;
 const int maxn = 1e3 + 1;

@@ -1,7 +1,7 @@
 #include <iostream>
  
 #pragma GCC optimize("Ofast")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,avx2,fma")
  
 const int M = 1000000007;
  

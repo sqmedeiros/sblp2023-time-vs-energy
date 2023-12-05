@@ -6,7 +6,7 @@
 // Powered by CP Editor (https://github.com/cpeditor/cpeditor)
  
 #include <bits/stdc++.h>
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,avx2,fma")
 //#pragma GCC optimize("O3")
 #pragma GCC optimize("unroll-loops")
 #pragma GCC optimize("Ofast")  // disable

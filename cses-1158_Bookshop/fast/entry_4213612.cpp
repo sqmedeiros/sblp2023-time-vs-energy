@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #pragma GCC optimize ("O3")
-#pragma GCC target ("avx,avx2")
+//#pragma GCC target ("avx,avx2")
 #pragma GCC optimize ("unroll-loops")
 static int h[1000];
 static int s[1000];

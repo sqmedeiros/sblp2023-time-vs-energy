@@ -1,5 +1,5 @@
 #pragma GCC optimize ("O3")
-#pragma GCC target ("avx,avx2")
+//#pragma GCC target ("avx,avx2")
  
 #include <algorithm>
 #include <cassert>

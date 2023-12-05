@@ -1,7 +1,7 @@
 //#pragma GCC optimize "trapv"
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize("O3", "unroll-loops")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,avx2,fma")
 #include<bits/stdc++.h>
 #define ll long long int
 #define fab(a,b,i) for(int i=a;i<b;i++)

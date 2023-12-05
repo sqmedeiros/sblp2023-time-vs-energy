@@ -1,6 +1,6 @@
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize("O3,unroll-loops")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,avx2,fma")
 #include <bits/stdc++.h>
 using namespace std;
 #include <ext/pb_ds/assoc_container.hpp>

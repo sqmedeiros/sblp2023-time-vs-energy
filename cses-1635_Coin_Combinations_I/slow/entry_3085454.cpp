@@ -1,7 +1,7 @@
 //    ǤØ β€¥ØŇĐ ƤŁỮŞ ỮŁŦŘΔ ΔŁŴΔ¥Ş ΔŇĐ ₣ØŘ€V€Ř 😈🤩🤟🤜👊🤛💪😉😇:
  
 #pragma GCC optimize("Ofast")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,vx2,fma")
 #pragma GCC optimization ("unroll-loops")
  
 #include <iostream>

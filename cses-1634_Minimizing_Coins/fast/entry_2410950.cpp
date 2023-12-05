@@ -1,5 +1,5 @@
 #pragma GCC optimize ("Ofast")
-#pragma GCC target ("avx2")
+//#pragma GCC target ("avx2")
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;

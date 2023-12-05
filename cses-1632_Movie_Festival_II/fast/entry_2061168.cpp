@@ -1,5 +1,5 @@
 #pragma GCC optimize("Ofast")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,avx2,fma")
 #include<bits/stdc++.h>
 #include<stdio.h>
 #include<math.h>

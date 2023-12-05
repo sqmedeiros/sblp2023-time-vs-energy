@@ -1,5 +1,5 @@
 #pragma GCC optimize("Ofast,unroll-loops")
-#pragma GCC target("avx,avx2,fma,bmi,bmi2")
+//#pragma GCC target("avx,avx2,fma,bmi,bmi2")
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;

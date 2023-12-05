@@ -3,7 +3,7 @@
 #include <iostream>
  
 #pragma GCC optimize ("O3")
-#pragma GCC target ("avx,avx2,fma")
+//#pragma GCC target ("avx,avx2,fma")
 #pragma GCC optimize ("unroll-loops")
  
 using namespace std;

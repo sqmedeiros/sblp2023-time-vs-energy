@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #pragma GCC optimize("Ofast")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,avx2,fma")
 using namespace std;
 const int MOD=1e9+7;
 long long suma(long long b,long long a)

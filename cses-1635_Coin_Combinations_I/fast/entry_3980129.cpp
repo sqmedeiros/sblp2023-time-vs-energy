@@ -10,7 +10,7 @@ typedef std::pair<int,int> pi;
 #define REP(i,a,b) for (int i = a; i < b; i++)
  
 #pragma GCC optimize("Ofast")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization ("unroll-loops")
  
 #define kons 1000000007
