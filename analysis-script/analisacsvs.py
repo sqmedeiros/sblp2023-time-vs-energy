@@ -125,6 +125,10 @@ for i in range(1,len(arquivos)):
             tuser = np.array(df.iloc[j:j+nexec,6])
             tsys = np.array(df.iloc[j:j+nexec,7])
             tsomausersys = tuser + tsys
+            difft = np.array(t - tsomausersys)
+            if (difft.max() > 10):
+                print("\n\n\nDifference between times seem too large in " + df.iloc[j,0] + " = " + str(difft.max()) + "\n\n\n\n")
+                file.write("\n\n\nDifference between times seem too large in " + df.iloc[j,0] + " = " + str(difft.max()) + "\n\n\n\n")
         
         #ordena de acordo com o tempo para remover os dois extremos
         dt = {'pkg': pkg, 'tempo':t, 'temposoma':tsomausersys}
@@ -184,7 +188,8 @@ for i in range(1,len(arquivos)):
         print('Root Mean Squared Error entre os tempos medidos: ', tempoRMSE)
         file.write('Root Mean Squared Error entre os tempos medidos: ' + str(tempoRMSE) + '\n')
         if (tempoRMSE > 10):
-            raise ValueError("Difference between times seem too large")
+            print('\n\n\n\nRMSE difference between times seem too large\n\n\n\n')
+            file.write('\n\n\n\nRMSE difference between times seem too large\n\n\n\n')
         if tsum:
             vmtempo = vmtsoma
             vdtempo = vdtsoma
