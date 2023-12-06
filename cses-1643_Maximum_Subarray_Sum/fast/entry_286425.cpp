@@ -3,7 +3,7 @@ using namespace std;
  
 // GCC Optimizations
 #pragma GCC optimize("Ofast")
-#pragma GCC target("fma,sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,tune=native")
+//#pragma GCC target("fma,sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,tune=native")
 #pragma GCC optimize("unroll-loops")
  
 #define alias_gen(type, from, to) template<typename... Ts> decltype(type<T...>().from(std::declval<Ts>()...)) to(Ts...s) {return this->from(s...);}

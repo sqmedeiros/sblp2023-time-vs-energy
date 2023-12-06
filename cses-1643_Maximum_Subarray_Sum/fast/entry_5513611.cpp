@@ -1,5 +1,5 @@
 #pragma GCC optimize("O3,unroll-all-loops")
-#pragma GCC target("avx,avx2,bmi,bmi2,popcnt,lzcnt")
+//#pragma GCC target("avx,avx2,bmi,bmi2,popcnt,lzcnt")
 #include <cstdio>
 #define int long long
 #define max(a,b) a>b?a:b
