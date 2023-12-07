@@ -1,0 +1,2 @@
+processando 1084-HPTHINK-slow-time.csv
+Root Mean Squared Error entre os tempos medidos: 24.43531000417224

@@ -1,0 +1,22 @@
+processando 1140-HPTHINK-slow-time.csv
+Root Mean Squared Error entre os tempos medidos: 0.9674386285444674
+Gordura (desvio do erro) da reta calculada:1.568910496375379
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.8673942685127258, pvalue=0.001466637128032744)
+		Não podemos afirmar que segue uma distribuição normal
+1140-HPTHINK-slow-time.csv
+Coeficiente R2: 0.9981959717792497
+Coeficiente Spearman: 0.996440489432703
+	interesse medium: entry_4773178.exe . Acima
+
+tempos medios das solucoes:
+2076.77917	
+consumo medio:
+44.23685	
+slopes:
+0.02148	
+Coeficientes R2::
+0.99820	
+Coeficientes Spearman:
+0.99644	
+Gordura (desvio do erro) da reta calculada:
+1.56891	
