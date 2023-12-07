@@ -1,0 +1,30 @@
+processando 1643-HPTHINK-slow-time.csv
+
+
+
+Difference between times seem too large in entry_4464596.exe  = 19
+
+
+
+Root Mean Squared Error entre os tempos medidos: 2.7907025698438974
+Gordura (desvio do erro) da reta calculada:0.7544845902034686
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.654186487197876, pvalue=3.5870627357326157e-07)
+		Não podemos afirmar que segue uma distribuição normal
+1643-HPTHINK-slow-time.csv
+Coeficiente R2: 0.9989697262377959
+Coeficiente Spearman: 0.9914349276974416
+	interesse low: entry_2353858.exe . Abaixo
+	interesse high: entry_4464596.exe . Acima
+
+tempos medios das solucoes:
+764.80833	
+consumo medio:
+15.87421	
+slopes:
+0.02111	
+Coeficientes R2::
+0.99897	
+Coeficientes Spearman:
+0.99143	
+Gordura (desvio do erro) da reta calculada:
+0.75448	

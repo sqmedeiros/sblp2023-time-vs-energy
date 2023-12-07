@@ -1,21 +1,20 @@
 
-real	0m0,686s
-user	0m0,541s
-sys	0m0,145s
+real	0m0,694s
+user	0m0,558s
+sys	0m0,136s
 
-real	0m0,391s
-user	0m0,259s
-sys	0m0,132s
+real	0m0,392s
+user	0m0,228s
+sys	0m0,164s
 
-real	0m0,699s
-user	0m0,551s
-sys	0m0,148s
+real	0m0,701s
+user	0m0,549s
+sys	0m0,152s
 
-real	0m0,290s
-user	0m0,161s
-sys	0m0,129s
-bash, linha 1:  3524 Falha de segmentação  (imagem do núcleo gravada) ./entry_5446735.exe < ../test/entry11.txt > /dev/null 2>&1
+real	0m0,289s
+user	0m0,159s
+sys	0m0,131s
 
-real	0m0,350s
-user	0m0,099s
-sys	0m0,134s
+real	0m0,744s
+user	0m0,580s
+sys	0m0,164s
