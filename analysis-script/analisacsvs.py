@@ -317,6 +317,12 @@ for i in range(1,len(arquivos)):
         indsel.append(itmp)
         nomesel.append(nometemp)
 
+print('\nslopes:')
+file.write('\nslopes:\n')
+for i in range(len(tempomedio)):
+    print(slopes[i],end='\t')   
+    file.write("{:.5f}".format(slopes[i]))
+    file.write("\t")
 print('\ntempos medios das solucoes:')
 file.write('\ntempos medios das solucoes:\n')
 for i in range(len(tempomedio)):
@@ -329,34 +335,29 @@ for i in range(len(tempomedio)):
     print(consumomedio[i],end='\t')
     file.write("{:.5f}".format(consumomedio[i]))
     file.write("\t")
-print('\nslopes:')
-file.write('\nslopes:\n')
-for i in range(len(tempomedio)):
-    print(slopes[i],end='\t')   
-    file.write("{:.5f}".format(slopes[i]))
-    file.write("\t")
 print('\nCoeficientes R2:')
 file.write('\nCoeficientes R2::\n')
+print('Coeficientes Spearman:')
+file.write('\nCoeficientes Spearman:\n')
+print('Gordura (desvio do erro) da reta calculada:')
+file.write('\nGordura (desvio do erro) da reta calculada:\n')
 for i in range(len(tempomedio)):
     print(Vr2[i],end='\t')   
     file.write("{:.5f}".format(Vr2[i]))
     file.write("\t")
-print('\nCoeficientes Spearman:')
-file.write('\nCoeficientes Spearman:\n')
+print('')
 for i in range(len(tempomedio)):
     print(Vspearman[i],end='\t')   
     file.write("{:.5f}".format(Vspearman[i]))
     file.write("\t")
-print('\nGordura (desvio do erro) da reta calculada:')
-file.write('\nGordura (desvio do erro) da reta calculada:\n')
+print('')
 for i in range(len(tempomedio)):
     print(gorduras[i],end='\t')   
     file.write("{:.5f}".format(gorduras[i]))
     file.write("\t")
-    
-
+print('')
 if  narq != 2: #so calcula matrizes e busca outliers se recebido mais de um arquivo
-    print('\n\nmatriz de relação de tempo medio')
+    """ print('\n\nmatriz de relação de tempo medio')
     print('informa o quanto a solucao da linha i é mais rapida que a solucao da coluna j\n')
     file.write('\n\nmatriz de relação de tempo medio')
     file.write('\ninforma o quanto a solucao da linha i é mais rapida que a solucao da coluna j\n')
@@ -390,7 +391,7 @@ if  narq != 2: #so calcula matrizes e busca outliers se recebido mais de um arqu
             file.write("{:.3f}".format((tempomedio[j]/tempomedio[i])/(slopes[i]/slopes[j])))
             file.write("\t")
         print('')
-        file.write('\n')
+        file.write('\n') """
 
     #achar ouliers de interesse (supoes que passou 2*n solucoes rodadas em 2 maquinas diferentes)
     print('Busca por ouliers de uma mesma solucao em máquinas diferentes')
