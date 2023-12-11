@@ -40,11 +40,17 @@ if '-wmmq' in arquivos:
     narq = narq-1
 
 #opcao de usar a soma do tempo user + sys no lugar do tempo medido
-tsum = False
+tsum = True #False
 if '-tsum' in arquivos:
     tsum = True
     arquivos.remove('-tsum')
     narq = narq-1
+
+if '-tclock' in arquivos:
+    tsum = False
+    arquivos.remove('-tclock')
+    narq = narq-1
+
 
 cores = ['b','r','g','m','k','c','y']
 estilos = ['.','s','+','d','o']
