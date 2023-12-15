@@ -133,9 +133,9 @@ for i in range(1,len(arquivos)):
             tsomausersys = tuser + tsys
             difft = np.array(t - tsomausersys)
             if (difft.max() > 10):
-                print("\n\n\nDifference between times seem too large in " + df.iloc[j,0] + " = " + str(difft.max()) + "\n\n\n\n")
-                file.write("\n\n\nDifference between times seem too large in " + df.iloc[j,0] + " = " + str(difft.max()) + "\n\n\n\n")
-        
+                print("\n\n\nDifference between times seem too large in " + df.iloc[j,0] + ". Max = " + str(difft.max()) + ". Number of occurences: " + str(sum(i > 10 for i in difft)) + "\n\n\n\n")
+                file.write("\n\n\nDifference between times seem too large in " + df.iloc[j,0] + ". Max = " + str(difft.max()) + ". Number of occurences: " + str(sum(i > 10 for i in difft)) + "\n\n\n\n")
+                
         #ordena de acordo com o tempo para remover os dois extremos
         dt = {'pkg': pkg, 'tempo':t, 'temposoma':tsomausersys}
         dtemp = pandas.DataFrame(data=dt)
