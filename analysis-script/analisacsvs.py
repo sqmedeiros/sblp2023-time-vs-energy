@@ -53,7 +53,9 @@ if '-tclock' in arquivos:
 
 
 cores = ['b','r','g','m','k','c','y']
-estilos = ['.','s','+','d','o']
+estilos = ['-','--','-.',':','-','--','-.']
+estilos2 = ['.','s','+','d','o','*','^']
+
 nestilo = -1
 
 #quantas execucoes de cada codigo foram feitas
@@ -133,9 +135,9 @@ for i in range(1,len(arquivos)):
             tsomausersys = tuser + tsys
             difft = np.array(t - tsomausersys)
             if (difft.max() > 10):
-                print("\n\n\nDifference between times seem too large in " + df.iloc[j,0] + " = " + str(difft.max()) + "\n\n\n\n")
-                file.write("\n\n\nDifference between times seem too large in " + df.iloc[j,0] + " = " + str(difft.max()) + "\n\n\n\n")
-        
+                print("\n\n\nDifference between times seem too large in " + df.iloc[j,0] + ". Max = " + str(difft.max()) + ". Number of occurences: " + str(sum(i > 10 for i in difft)) + "\n\n\n\n")
+                file.write("\n\n\nDifference between times seem too large in " + df.iloc[j,0] + ". Max = " + str(difft.max()) + ". Number of occurences: " + str(sum(i > 10 for i in difft)) + "\n\n\n\n")
+                
         #ordena de acordo com o tempo para remover os dois extremos
         dt = {'pkg': pkg, 'tempo':t, 'temposoma':tsomausersys}
         dtemp = pandas.DataFrame(data=dt)
@@ -224,9 +226,9 @@ for i in range(1,len(arquivos)):
     
     #plota pontos e reta de tendencia
     plt.figure(h1.number)
-    plt.plot(xr,yr,'-' +estilos[nestilo]+ cores[(i-1)%7])        
+    plt.plot(xr,yr,estilos[(i-1)%7]+ cores[(i-1)%7])        
     #plt.errorbar(vmtempo,vmconsumo, yerr=nsigma*vdconsumo, fmt =estilos[nestilo]+cores[(i-1)%7],label=arquivos[i][0:-4],markersize=8)
-    plt.errorbar(vmtempo,vmconsumo, yerr=nsigma*vdconsumo, xerr=nsigma*vdtempo,fmt =estilos[nestilo]+cores[(i-1)%7],label=arquivos[i][0:-4],markersize=8)
+    plt.errorbar(vmtempo,vmconsumo, yerr=nsigma*vdconsumo, xerr=nsigma*vdtempo,fmt =estilos2[(i-1)%7]+cores[(i-1)%7],label=arquivos[i][0:-4],markersize=8)
     
     
     #plota pontos com cores de acordo com a distancia para a reta tendencia
