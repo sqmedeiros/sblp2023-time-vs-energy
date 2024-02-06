@@ -19,7 +19,7 @@ The code in subfolders `RAPL` and `RAPL-time` is mostly based on the one provide
 
 Each folder related to a CSES problem has a `Makefile`, a subfolder `test`, with input files related to the problem, and the subfolders `slow`, `fast`, `rand`, `rand30` and `control` which contain C++ solutions for the given problem with the following configuration:
 - `slow`: the 10 slowest C++ solutions.
-- `fast': the 10 fastest C++ solutions.
+- `fast`: the 10 fastest C++ solutions.
 - `rand`: 10 C++ solutions chosen at random.
 - `rand30`: 30 C++ solutions (different from `rand`) chosen at random.
 - `control`: 10 C++ solutions (different from `rand` and `rand30`) chosen at random.
