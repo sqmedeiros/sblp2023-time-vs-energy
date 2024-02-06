@@ -9,7 +9,7 @@ It contains folders related to 15 different CSES problems, where each folder con
 
 ## Folder Structure
 
-The main folder contains 17 subfolders: 
+The main folder contains 18 subfolders: 
 1. 15 subfolders (one for each CSES problem).
 2. A subfolder `RAPL`, which contains the code related to the time/energy measurement framework. The running time of a program is measured based on a wall-clock timer.
 3. A subfolder `RAPL-time`, which contains the code related to the time/energy measurement framework. The running time of a program is measured based on a cpu timer.
