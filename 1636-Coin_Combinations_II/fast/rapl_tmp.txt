@@ -1,5 +1,0 @@
-bash, linha 1:  2025 Instrução ilegal      (imagem do núcleo gravada) ./entry_5918144.exe < ../test/entry04.txt > /dev/null 2>&1
-
-real	0m0,119s
-user	0m0,001s
-sys	0m0,002s
