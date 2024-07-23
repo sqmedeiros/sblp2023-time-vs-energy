@@ -1,0 +1,37 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          myscript
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: My Script
+# Description:       Execute my script at startup
+### END INIT INFO
+
+#if  ! systemctl list-jobs | grep -q -e "reboot.target.*start"; then
+  # Change to the directory where your script is located
+#  cd /home/sergio
+  # Execute your script
+#  ./medicoes   
+#fi
+
+case "$1" in
+  start)
+    echo "Running experiment..."
+    cd /home/sergio/sblp2023-time-vs-energy
+      #/home/sergio/rouxinol
+      #/home/sergio/pesquisa/sblp2023-time-vs-energy
+    python3 run-experiment-script/script.py
+    ;;
+  stop)
+    echo "Nothing to do."
+    ;;
+  *)
+    echo "Usage: /etc/init.d/myscript {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
+
