@@ -1,1 +1,0 @@
-* Not considered solution https://cses.fi/problemset/hack/1643/entry/5359354/ because it requires C++20
