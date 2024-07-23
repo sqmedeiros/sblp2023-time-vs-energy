@@ -8,20 +8,20 @@ from os.path import isfile, join
 
 dirs = [
   "1071-Number_Spiral",
-#  "1082-Sum_of_Divisors",
-#  "1084-Apartments",
-#  "1140-Projects",
-#  "1158-Bookshop",
-#  "1621-Distinct_Numbers",
-#  "1632-Movie_Festival_II",
-#  "1634-Minimizing_Coins",
-#  "1635-Coin_Combinations_I",
-#  "1636-Coin_Combinations_II",
-#  "1639-Edit_Distance",
-#  "1640-Sum_of_Two_Values",
-#  "1642-Sum_of_Four_Values",
-#  "1643-Maximum_Subarray_Sum",
-#  "2185-Prime_Multiples"
+  "1082-Sum_of_Divisors",
+  "1084-Apartments",
+  "1140-Projects",
+  "1158-Bookshop",
+  "1621-Distinct_Numbers",
+  "1632-Movie_Festival_II",
+  "1634-Minimizing_Coins",
+  "1635-Coin_Combinations_I",
+  "1636-Coin_Combinations_II",
+  "1639-Edit_Distance",
+  "1640-Sum_of_Two_Values",
+  "1642-Sum_of_Four_Values",
+  "1643-Maximum_Subarray_Sum",
+  "2185-Prime_Multiples"
 ] 
 
 
