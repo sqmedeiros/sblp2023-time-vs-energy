@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
  
-public class DistinctNumbers {
+public class entry_6783169 {
  
         public static void main(String[] args) {
             FastScanner scanner = new FastScanner(System.in);

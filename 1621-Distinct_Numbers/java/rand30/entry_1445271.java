@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
  
-public class Main {
+public class entry_1445271 {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

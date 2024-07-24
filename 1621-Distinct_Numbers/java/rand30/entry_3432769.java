@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
  
-public class DistinctNumbers {
+public class entry_3432769 {
     public static InputReader ir;
     public static PrintWriter pw;
  

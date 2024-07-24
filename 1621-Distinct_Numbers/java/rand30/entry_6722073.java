@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
  
-public class distinctnumbers {
+public class entry_6722073 {
     public static void main(String[] args)throws IOException{
         BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
         int n =Integer.parseInt(bf.readLine());

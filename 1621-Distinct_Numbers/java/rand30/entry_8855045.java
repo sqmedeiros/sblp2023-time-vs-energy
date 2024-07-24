@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Scanner;
  
-public class DistinctNums {
+public class entry_8855045 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         HashSet<Integer> dist = new HashSet<Integer>();
