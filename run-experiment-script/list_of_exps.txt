@@ -1,0 +1,60 @@
+* ELITE
+- Ok
+java elite mult rapl rand30 
+java elite sing rapl rand30
+
+- Running
+c++ elite mult perf rand30
+
+- To schedule
+c++ elite sing rapl rand30 
+c++ elite mult perf rand30
+c++ elite sing perf rand30
+c++ elite sing rapl control
+c++ elite mult rapl control
+c++ elite sing perf control
+c++ elite mult perf control
+java elite mult perf rand30 
+java elite sing perf rand30
+c++ elite mult rapl fast rand slow
+c++ elite mult perf fast rand slow
+
+
+* THINK
+
+- Ok
+java think mult rapl rand30 
+java think sing rapl rand30
+
+- Running
+c++ think mult perf rand30
+
+- To schedule
+c++ think sing rapl rand30 
+c++ think mult perf rand30
+c++ think sing perf rand30
+c++ think sing rapl control
+c++ think mult rapl control
+c++ think sing perf control
+c++ think mult perf control
+java think mult perf rand30 
+java think sing perf rand30
+c++ think mult rapl fast rand slow
+c++ think mult perf fast rand slow
+
+
+* XEON
+
+- Ok
+
+- Running
+c++ xeon mult perf rand30 
+
+
+- To schedule
+c++ xeon sing perf rand30
+c++ xeon mult perf control 
+c++ xeon sing perf control
+java xeon mult perf rand30 
+java xeon sing perf rand30
+c++ think mult perf fast rand slow
