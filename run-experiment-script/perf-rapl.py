@@ -9,9 +9,11 @@ csv.field_size_limit(sys.maxsize)
 NRUNS = 10
 perf_flag_prefix = "power/energy-"
 
+# Set RAM to True in case there is support to measure the RAM energy consumption
+RAM = False
+
 # perf power options
 # power/energy-cores/, power/energy-gpu/, power/energy-pkg/, power/energy-psys/, power/energy-ram/
-
 flag_pkg = "power/energy-pkg/"
 flag_ram = "power/energy-ram/"
 flag_user_time = "user_time"
@@ -20,10 +22,13 @@ flag_sys_time = "system_time"
 
 def get_perf_flag ():
   #using "all_cpus" otherwise perf does not return measurements related to the energy flags
-  perf_flag = f"{flag_pkg},{flag_ram},{flag_user_time},{flag_sys_time} --all-cpus"
+  if RAM:
+    perf_flag = f"{flag_pkg},{flag_ram},{flag_user_time},{flag_sys_time} --all-cpus"
+  else:
+    perf_flag = f"{flag_pkg},{flag_user_time},{flag_sys_time} --all-cpus"
   #adding flag_pkg again to indicate the beginning of the measurements
   perf_flag = f"{flag_pkg},{perf_flag}"
-  print(f"perf_flag = {perf_flag}")
+  #print(f"perf_flag = {perf_flag}")
   return perf_flag
 
 
@@ -31,7 +36,7 @@ def get_perf_flag ():
 # 1 Name ; 2 RAPL Pkg ; 3 RAPL Cores ; 4 RAPL RAM ; 5 RAPL GPU ; 6 Total Time; 7 User Time; 8 Sys Time
 def make_new_csv_entry (csv_file, entry_data):  
 
-  print(f"Nova medição {', '.join(entry_data)}\n")
+  #print(f"Nova medição {', '.join(entry_data)}\n")
   
   with open(csv_file, "a+") as f:
      f.write(", ".join(entry_data))
@@ -54,8 +59,11 @@ def get_measurements (reader, measurements):
   clock_time = int(row[3])
   measurements["clock_time"] += clock_time
 
-  row = next(reader)
-  ram = float(row[0].replace(",", "."))
+  if RAM:
+    row = next(reader)
+    ram = float(row[0].replace(",", "."))
+  else:
+    ram = 0
   measurements["ram"] += ram
 
   row = next(reader)
@@ -81,7 +89,7 @@ def run_test (prog, output, csv_file, test_file, measurements):
     reader = csv.reader(csvfile, delimiter=';')
     while True:
       row = next(reader)
-      print(f"Row {row} first = {is_perf_measurement(row)}")
+      #print(f"Row {row} first = {is_perf_measurement(row)}")
       if is_perf_measurement(row):  # begin of perf measurement (extra pkg measurement)
         get_measurements(reader, measurements)
         break
@@ -89,11 +97,11 @@ def run_test (prog, output, csv_file, test_file, measurements):
   print(f"Finished test: {measurements}")
 
 
-print(sys.argv)
-for v in sys.argv:
-  print(f"v {v}")
-print(len(sys.argv))
-print(sys.argv[0])
+#print(sys.argv)
+#for v in sys.argv:
+#  print(f"v {v}")
+#print(len(sys.argv))
+#print(sys.argv[0])
 
 exe_prog = sys.argv[1]
 output = sys.argv[2]

@@ -140,8 +140,7 @@ def copyMakefilesubdir(mydir, make_config):
   elif lang == 'c++' and profiler == 'rapl':
     cmd = 'cp ' + makefileDir + 'Makefile-RAPL-c++ ' + mydir + '/' + expDir + '/Makefile'
   elif lang == 'java' and profiler == 'perf':
-    print(f'Not supported yet. Aborting.\nmake_config = {make_config}.')
-    sys.exit()
+    cmd = 'cp ' + makefileDir + 'Makefile-perf-java ' + mydir + '/' + expDir + '/Makefile'
   elif lang == 'java' and profiler == 'rapl':
     cmd = 'cp ' + makefileDir + 'Makefile-RAPL-java ' + mydir + '/' + expDir + '/Makefile'
   else:
