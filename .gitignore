@@ -82,3 +82,7 @@ log/myLog.txt
 2185-Prime_Multiples/faztudo.sh
 Experiments.txt
 ToProcess.txt
+/results/elite/rapl/analysis_results
+/results/think/rapl/analysis_results
+/results/think/perf/analysis_results
+/results/elite/perf/analysis_results
