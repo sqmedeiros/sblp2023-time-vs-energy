@@ -1,0 +1,27 @@
+* ELITE
+java elite sing rapl base10
+java elite mult rapl base10 
+java elite sing perf base10
+java elite mult perf base10
+c++ elite sing rapl base10  
+c++ elite mult rapl base10
+c++ elite sing perf base10
+c++ elite mult perf base10
+
+
+* THINK
+java think sing rapl base10
+java think mult rapl base10 
+java think sing perf base10
+java think mult perf base10
+c++ think sing rapl base10  
+c++ think mult rapl base10
+c++ think sing perf base10
+c++ think mult perf base10
+
+
+* XEON
+java xeon sing perf base10
+java xeon mult perf base10
+c++ xeon sing perf base10
+c++ xeon mult perf base10
