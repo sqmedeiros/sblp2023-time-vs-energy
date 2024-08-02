@@ -592,12 +592,7 @@ def mostraesalvagraficos(arquivoscurtos):
 
 def imprimesalvainfo(slopes,lincoeff,tempomedio,consumomedio,arquivoscurtos,experimentname,Vr2,Vspearman,gorduras,file):
 
-    print('\nslopes:')
-    file.write('\nslopes:\n')
-    for i in range(len(tempomedio)):
-        print(slopes[i],end='\t')   
-        file.write("{:.5f}".format(slopes[i]))
-        file.write("\t")
+    
     print('\nlinear coefficients:')
     file.write('\nlinear coefficients:\n')
     for i in range(len(tempomedio)):
@@ -617,12 +612,20 @@ def imprimesalvainfo(slopes,lincoeff,tempomedio,consumomedio,arquivoscurtos,expe
         print(consumomedio[i],end='\t')
         file.write("{:.5f}".format(consumomedio[i]))
         file.write("\t")
-    print('\nCoeficientes R2:')
+    print('\n\nslopes:')
+    file.write('\nslopes:\n')
+    print('Coeficientes R2:')
     file.write('\nCoeficientes R2:\n')
     print('Coeficientes Spearman:')
     file.write('Coeficientes Spearman:\n')
-    print('Gordura (desvio do erro) da reta calculada:')
-    file.write('Gordura (desvio do erro) da reta calculada:\n')
+    print('Gordura (desvio do erro) da reta calculada:\n\n')
+    file.write('Gordura (desvio do erro) da reta calculada:\n\n')
+    for i in range(len(tempomedio)):
+        print(slopes[i],end='\t')   
+        file.write("{:.5f}".format(slopes[i]))
+        file.write("\t")
+    print('')
+    file.write("\n")
     for i in range(len(tempomedio)):
         print(Vr2[i],end='\t')   
         file.write("{:.5f}".format(Vr2[i]))
@@ -633,7 +636,7 @@ def imprimesalvainfo(slopes,lincoeff,tempomedio,consumomedio,arquivoscurtos,expe
         print(Vspearman[i],end='\t')   
         file.write("{:.5f}".format(Vspearman[i]))
         file.write("\t")
-    print('')
+    print('\n')
     file.write("\n")
     for i in range(len(tempomedio)):
         print(gorduras[i],end='\t')   
@@ -673,6 +676,13 @@ def setbaselineslope(experimentname, flags):
         return baselineslopexeon
     else:
         return 0
+    
+def imprimioutliers(outliers, arquivos):
+    nomesel = outliers['nomesel']
+    for i in range(1,len(arquivos)):
+        print(arquivos[i][0:4])
+        for j in range(len(nomesel[i])):
+            print(nomesel[i][j])
 
 ########   main   ##################
 
@@ -762,6 +772,7 @@ imprimesalvainfo(slopes,lincoeff,tempomedio,consumomedio,arquivoscurtos,experime
 
 #matrizrelacaotempomedio(slopes,tempomedio,file)
 buscaoutliersmaquinasdiferentes(narq,outliers,arquivos,file)
+imprimioutliers(outliers, arquivos)
 
 mostraesalvagraficos(arquivoscurtos)
 
