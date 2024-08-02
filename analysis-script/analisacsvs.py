@@ -297,6 +297,13 @@ def salvaresumoordenado(d,arquivo):
 
 def diferencatempos(ncolunas, vmtempo, vdtempo, vmtsoma, flags):
 
+    #correlacao entre os tempos
+    d = { 'tempo_wclock':vmtempo, 'tempo_usersys': vmtsoma}
+    ds = pandas.DataFrame(data=d)
+    corrmat = ds.corr(method='pearson')
+    coeffP = corrmat.values[0,1]**2
+    print('Correlacao entre os tempos wall clock e user+sys: ', coeffP)
+
     #diferença entre tempos medidos (rapl e time)
     if ncolunas == 8:
         verrotempo = (vmtempo - vmtsoma)**2
@@ -661,6 +668,9 @@ def setbaselineslope(experimentname, flags):
     elif experimentname.find('think') >= 0:
         print('removing baseline for experiment in think machine')
         return baselineslopethik
+    elif experimentname.find('xeon') >= 0:
+        print('removing baseline for experiment in xeon machine')
+        return baselineslopexeon
     else:
         return 0
 
@@ -706,6 +716,8 @@ outliers = crialistaoutliers()
 
 baselineslopeelite = 0.000470713037088506
 baselineslopethik = 0.004206933889974837
+baselineslopexeon = 0.017993388577357064
+
 
 
 for i in range(1,len(arquivos)):

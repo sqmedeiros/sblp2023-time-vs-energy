@@ -86,3 +86,5 @@ ToProcess.txt
 /results/think/rapl/analysis_results
 /results/think/perf/analysis_results
 /results/elite/perf/analysis_results
+/baseline/c++/analysis_results
+/results/xeon/perf/analysis_results
