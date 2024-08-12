@@ -224,8 +224,8 @@ def removeBaseline(mediaconsumo, mediatempo):
 
 def calculamedias(df, ncolunas, nlinhas, nexec, flags, file):
 
-    print('processando ',arquivos[i])
-    file.write('processando ' + arquivos[i] + '\n')
+    print('\nProcessando ',arquivos[i])
+    file.write('\nProcessando ' + arquivos[i] + '\n')
 
     j = 0
     cont = 0
@@ -683,11 +683,11 @@ def setbaselineslope(experimentname, flags):
 def imprimioutliers(outliers, arquivos):
     print('\nOutliers por problema:')
     nomesel = outliers['nomesel']
-    for i in range(1,len(arquivos)-1):
+    for i in range(1,len(arquivos)):
         print(arquivos[i][0:4])
         for j in range(3):
-            if len(nomesel[3*i+j])>0:
-                print('\t' + nomesel[3*i+j][0])
+            if len(nomesel[3*(i-1)+j])>0:
+                print('\t' + nomesel[3*(i-1)+j][0])
 
 ########   main   ##################
 ########   main   ##################
