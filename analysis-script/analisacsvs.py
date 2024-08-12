@@ -159,11 +159,6 @@ def criarelatorio(arquivoscurtos):
     file = open("analysis_results/relatorio" + ''.join(arquivoscurtos[0:]) + ".txt", "w")
     return file
 
-def incrementaestilo(nestilo,i):
-    if i%7==1:
-        nestilo += 1
-    return nestilo
-
 def carregacsv(arquivo, flags, nexec):
 
     print('carregando ',arquivo)
@@ -316,7 +311,7 @@ def diferencatempos(ncolunas, vmtempo, vdtempo, vmtsoma, flags):
         if not(flags['tclock']):
             vmtempo = vmtsoma
             vdtempo = vdtsoma
-    return vmtempo, vdtempo
+    return vmtempo, vdtempo, coeffP
 
 def calculaajuste(vmtempo, vmconsumo, vdconsumo, flags):
     b = 0
@@ -590,25 +585,25 @@ def mostraesalvagraficos(arquivoscurtos):
     plt.savefig('analysis_results/outliers' + ''.join(arquivoscurtos[0:]) + '.pdf')  
     plt.show()
 
-def imprimesalvainfo(slopes,lincoeff,tempomedio,consumomedio,arquivoscurtos,experimentname,Vr2,Vspearman,gorduras,file):
-
+def imprimesalvainfo(slopes,lincoeff,tempomedio,consumomedio,arquivoscurtos,experimentname,Vr2,Vspearman,gorduras,file,correlacaotempos):
+    n = len(slopes)
     
     print('\nlinear coefficients:')
     file.write('\nlinear coefficients:\n')
-    for i in range(len(tempomedio)):
+    for i in range(n):
         print(lincoeff[i],end='\t')   
         file.write("{:.5f}".format(lincoeff[i]))
         file.write("\t")
     saveSlopesCsv(slopes,lincoeff, arquivoscurtos, experimentname)
     print('\ntempos medios das solucoes:')
     file.write('\ntempos medios das solucoes:\n')
-    for i in range(len(tempomedio)):
+    for i in range(n):
         print(tempomedio[i],end='\t')
         file.write("{:.5f}".format(tempomedio[i]))
         file.write("\t")
     print('\nconsumo medio:')
     file.write('\nconsumo medio:\n')
-    for i in range(len(tempomedio)):
+    for i in range(n):
         print(consumomedio[i],end='\t')
         file.write("{:.5f}".format(consumomedio[i]))
         file.write("\t")
@@ -620,29 +615,37 @@ def imprimesalvainfo(slopes,lincoeff,tempomedio,consumomedio,arquivoscurtos,expe
     file.write('Coeficientes Spearman:\n')
     print('Gordura (desvio do erro) da reta calculada:\n\n')
     file.write('Gordura (desvio do erro) da reta calculada:\n\n')
-    for i in range(len(tempomedio)):
+    for i in range(n):
         print(slopes[i],end='\t')   
         file.write("{:.5f}".format(slopes[i]))
         file.write("\t")
     print('')
     file.write("\n")
-    for i in range(len(tempomedio)):
+    for i in range(n):
         print(Vr2[i],end='\t')   
         file.write("{:.5f}".format(Vr2[i]))
         file.write("\t")
     print('')
     file.write("\n")
-    for i in range(len(tempomedio)):
+    for i in range(n):
         print(Vspearman[i],end='\t')   
         file.write("{:.5f}".format(Vspearman[i]))
         file.write("\t")
     print('\n')
     file.write("\n")
-    for i in range(len(tempomedio)):
+    for i in range(n):
         print(gorduras[i],end='\t')   
         file.write("{:.5f}".format(gorduras[i]))
         file.write("\t")
     print('')
+    file.write("\n")
+    print('\nCorrelaçaõ entre os tempos:\n')
+    file.write('\nCorrelaçaõ entre os tempos:')
+    for i in range(n):
+        print(correlacaotempos[i],end='\t')   
+        file.write("{:.5f}".format(correlacaotempos[i]))
+        file.write("\t")
+    print('\n')
     file.write("\n")
 
 
@@ -678,12 +681,19 @@ def setbaselineslope(experimentname, flags):
         return 0
     
 def imprimioutliers(outliers, arquivos):
+    print('\nOutliers por problema:')
     nomesel = outliers['nomesel']
-    for i in range(1,len(arquivos)):
+    for i in range(1,len(arquivos)-1):
         print(arquivos[i][0:4])
-        for j in range(len(nomesel[i])):
-            print(nomesel[i][j])
+        for j in range(3):
+            if len(nomesel[3*i+j])>0:
+                print('\t' + nomesel[3*i+j][0])
 
+########   main   ##################
+########   main   ##################
+########   main   ##################
+########   main   ##################
+########   main   ##################
 ########   main   ##################
 
 sistemaoperacional = platform.system()
@@ -694,7 +704,7 @@ narq = checkargs(arquivos)
 
 cores = ['b','r','g','m','k','c','y']
 estilos = ['-','--','-.',':','-','--','-.']
-estilos2 = ['.','s','+','d','o','*','^']
+estilos2 = ['o','P','s','d','x','*','^','p']
 nestilo = -1
 
 #número de desvios padrao da barra de erro
@@ -720,6 +730,7 @@ consumomedio = []
 Vr2 = []
 Vspearman = []
 gorduras = []
+correlacaotempos =[]
 
 #listas com pontos de interesse (outliers)
 outliers = crialistaoutliers()
@@ -731,28 +742,29 @@ baselineslopexeon = 0.017993388577357064
 
 
 for i in range(1,len(arquivos)):
-    nestilo = incrementaestilo(nestilo,i)
+    nestilo = (i-1)%8
+    ncor = (i-1)%7
+
     df, ncolunas, nlinhas, nexec = carregacsv(arquivos[i], flags, nexec)
     baselineslope = setbaselineslope(arquivos[i],flags)
     vnome, vmconsumo, vdconsumo, vmtempo, vdtempo, vmtsoma, vdtsoma = calculamedias(df, ncolunas, nlinhas, nexec, flags, file)
     ds, d = salvaresumo(arquivos[i],vnome, vmconsumo, vdconsumo, vmtempo,vdtempo, vmtsoma, vdtsoma)
     vnome, vmconsumo, vdconsumo, vmtempo, vdtempo, vmtsoma, vdtsoma =  carregaordenadonome(ds)
     salvaresumoordenado(d,arquivos[i])
-    vmtempo, vdtempo = diferencatempos(ncolunas, vmtempo, vdtempo, vmtsoma, flags)
+    vmtempo, vdtempo, corrtemp = diferencatempos(ncolunas, vmtempo, vdtempo, vmtsoma, flags)
     
     a,b = calculaajuste(vmtempo, vmconsumo, vdconsumo, flags)
 
-    indest = (i-1)%7
-    xr, yr = plotaretas(a,b,vmtempo,vdtempo,vmconsumo,vdconsumo,nsigma,estilos[indest],estilos2[indest],cores[indest],arquivos[i],h1)
+    xr, yr = plotaretas(a,b,vmtempo,vdtempo,vmconsumo,vdconsumo,nsigma,estilos[ncor],estilos2[nestilo],cores[ncor],arquivos[i],h1)
     verr, sse, desvioerro, gorduras = calculaerro(a,b,vmtempo, vmconsumo, gorduras, flags, file)
     sigout = 2 #nmero de desvios para um ponto ser considerado outlier
-    plotarestasdesvio(xr,yr,sigout,desvioerro,cores[indest],h2)
+    plotarestasdesvio(xr,yr,sigout,desvioerro,cores[ncor],h2)
 
     rshapwilk = shapiro(verr, file)
     coeffP, Vr2 = pearson(vmtempo,vmconsumo, sse, file, arquivos[i], Vr2)
     coeffS, Vspearman = spearman(ds, file)
 
-    outliers = detectaoutliers(outliers,vmtempo,vmconsumo,vdtempo,vdconsumo,sigout,desvioerro,verr,vnome, cores[indest],h2)
+    outliers = detectaoutliers(outliers,vmtempo,vmconsumo,vdtempo,vdconsumo,sigout,desvioerro,verr,vnome, cores[ncor],h2)
 
     if flags['rout'] or flags['rtail']:
         idx = (i - 1) * 3 + 2
@@ -767,8 +779,9 @@ for i in range(1,len(arquivos)):
     print('slope: ',a,' linear coeff: ', b)
     tempomedio.append(vmtempo.mean())
     consumomedio.append(vmconsumo.mean())
+    correlacaotempos.append(corrtemp)
 
-imprimesalvainfo(slopes,lincoeff,tempomedio,consumomedio,arquivoscurtos,experimentname,Vr2,Vspearman,gorduras,file)
+imprimesalvainfo(slopes,lincoeff,tempomedio,consumomedio,arquivoscurtos,experimentname,Vr2,Vspearman,gorduras,file,correlacaotempos)
 
 #matrizrelacaotempomedio(slopes,tempomedio,file)
 buscaoutliersmaquinasdiferentes(narq,outliers,arquivos,file)
