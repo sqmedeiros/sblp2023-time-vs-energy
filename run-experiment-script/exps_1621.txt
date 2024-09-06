@@ -1,0 +1,19 @@
+* ELITE
+java elite mult rapl rand30 
+java elite sing rapl rand30
+java elite mult perf rand30 
+java elite sing perf rand30
+
+* THINK
+
+java think mult rapl rand30 
+java think sing rapl rand30
+java think mult perf rand30 
+java think sing perf rand30
+
+
+* XEON
+
+java think mult perf rand30 
+java think sing perf rand30
+
