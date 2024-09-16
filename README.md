@@ -4,7 +4,7 @@
 
 This repository contains the source code of C++ solutions mined from the Code Submission Evaluation System (CSES).
 
-It contains folders related to 15 different CSES problems, where each folder contains several (usually 70) different C++ solutions. The complete list of CSES problems is available in [CSES_problems](/CSES_problems.md).
+It contains folders related to 15 different CSES problems, where each folder contains around 100 different solutions (70 C++, 30 Java). The complete list of CSES problems is available in [CSES_problems](/CSES_problems.md).
 
 
 ## Folder Structure
@@ -17,24 +17,40 @@ The main folder contains 18 subfolders:
 
 The code in subfolders `RAPL` and `RAPL-time` is mostly based on the one provided by the [Green Software Lab](https://github.com/greensoftwarelab/Energy-Languages).
 
-Each folder related to a CSES problem has a `Makefile`, a subfolder `test`, with input files related to the problem, and the subfolders `slow`, `fast`, `rand`, `rand30` and `control` which contain C++ solutions for the given problem with the following configuration:
+Each folder related to a CSES problem has a `Makefile`, a subfolder `test`, with input files related to the problem, a `c++` folder, with the C++ solutions, and  `java` folder,
+with the Java solutions. 
+
+Each `c++` folder has the subfolders `slow`, `fast`, `rand`, `rand30` and `control`, with the following configuration:
 - `slow`: the 10 slowest C++ solutions.
 - `fast`: the 10 fastest C++ solutions.
 - `rand`: 10 C++ solutions chosen at random.
 - `rand30`: 30 C++ solutions (different from `rand`) chosen at random.
 - `control`: 10 C++ solutions (different from `rand` and `rand30`) chosen at random.
 
-During our experiments, we considered the following **datasets**:
-- `slow`: which consists of the C++ solutions in subfolders `slow`, `fast` and `rand`
-- `rand30`: which consists of the C++ solutions in subfolder `rand30`
-- `control`: which consists of the C++ solutions in subfolder `control`
+Each `java` folder has only the subfolder `rand30`, with 30 Java solutions chosen at random.
 
-In the folder of each CSES problem there are `.csv` files related to the energy measurements performed.
-Thes names of these files have the following structure: **PROBLEM_NUMBER-MACHINE-DATASET-TIME_MEASUREMENT**.
+During our experiments, we considered the following **datasets**:
+- `SFR C++`: which consists of the C++ solutions in subfolders `slow`, `fast` and `rand`
+- `Rand30 C++`: which consists of the C++ solutions in subfolder `rand30`
+- `Control`: which consists of the C++ solutions in subfolder `control`
+- `Rand30 Java`: which consists of the Java solutions in subfolder `rand30`
+
+In the folder of each CSES problem there are `.csv` files related to the energy measurements performed
+regarding sections 4.1.1, 4.2 and 4.3. The names of these files have the following structure: **PROBLEM_NUMBER-MACHINE-DATASET-TIME_MEASUREMENT**.
 
 Below, we present some examples of these files:
 - 1621-HPELITE-control-time.csv: data related to CSES problem *1621*, where the measurement was performed at machine *HPELITE* for the *control* dataset, using a *cpu-based* timer.
 - 1082-HPTHINK-slow-clock.csv: data related to CSES problem *1082*, where the measurement was performed at machine *HPTHINK* for the *slow* dataset, using a *wall-clock* timer.
+
+
+The measurements related to section 4.1.2 are in folder `results`, where there
+is a subfolder for each machine (`elite`, `think` and `xeon`), and then a
+subfolder for each measurement framework (`perf` and `rapl`).
+
+The names of the files in these folders have the following structure: **PROBLEM_NUMBER-LANGUAGE-CORES-MACHINE-DATASET-TIME_MEASUREMENT**.
+Below, we present some examples of these files:
+ - 1643-Maximum_Subarray_Sum-java-mult-rapl-elite-rand30-24-07-2024-18-11.csv
+ - 2185-Prime_Multiples-c++-sing-perf-xeon-rand30-26-07-2024-19-22.csv
 
 
 ## Compiling/Running the C++ Solutions
@@ -88,8 +104,7 @@ auxiliary files generated during the analysis.
 The paper **Analyzing the Time x Energy Relation in C++ Solutions Mined from a Programming Contest Site**,
 by Sérgio Queiroz de Medeiros, Marcelo Borges Nogueira and Gustavo Quezado, from the 
 27th Brazilian Symposium on Programming Languages (SBLP'2023), 
-discusses an experiment based on the data available in this repository.
-
+discusses a previous experiment based on the data available in this repository.
 
 
 ## Contact
