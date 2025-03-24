@@ -1,0 +1,675 @@
+
+Processando elite\perf\1071-Number_Spiral-java-mult-perf-elite-rand30-26-07-2024-20-27.csv
+Root Mean Squared Error entre os tempos medidos: 557.5603120403209
+
+
+
+
+RMSE difference between times seem too large
+
+
+
+Gordura (desvio do erro) da reta calculada:0.1916474578086529
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.913106381893158, pvalue=0.01783667504787445)
+		Não podemos afirmar que segue uma distribuição normal
+elite\perf\1071-Number_Spiral-java-mult-perf-elite-rand30-26-07-2024-20-27.csv
+Coeficiente R2: 0.997135809782137
+Coeficiente Spearman: 0.9275781568133475
+	interesse low: entry_3862516. Abaixo
+
+Processando think\perf\1071-Number_Spiral-java-mult-perf-think-rand30-26-07-2024-22-15.csv
+Root Mean Squared Error entre os tempos medidos: 827.3075943862516
+
+
+
+
+RMSE difference between times seem too large
+
+
+
+Gordura (desvio do erro) da reta calculada:0.535547701897582
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.9806289076805115, pvalue=0.842022180557251)
+		Segue uma distribuição normal com confiança de 95%
+think\perf\1071-Number_Spiral-java-mult-perf-think-rand30-26-07-2024-22-15.csv
+Coeficiente R2: 0.9944056156451746
+Coeficiente Spearman: 0.9875417130144605
+	interesse low: entry_2484268. Abaixo
+	interesse low: entry_4861571. Acima
+
+Processando xeon\perf\1071-Number_Spiral-java-mult-perf-xeon-rand30-27-07-2024-02-16.csv
+Root Mean Squared Error entre os tempos medidos: 809.1929766362904
+
+
+
+
+RMSE difference between times seem too large
+
+
+
+Gordura (desvio do erro) da reta calculada:0.8371739808211107
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.8497498035430908, pvalue=0.0006126001826487482)
+		Não podemos afirmar que segue uma distribuição normal
+xeon\perf\1071-Number_Spiral-java-mult-perf-xeon-rand30-27-07-2024-02-16.csv
+Coeficiente R2: 0.9808631789460903
+Coeficiente Spearman: 0.953726362625139
+
+Processando elite\perf\1071-Number_Spiral-java-sing-perf-elite-rand30-27-07-2024-00-48.csv
+
+
+
+Difference between times seem too large in entry_1761399. Max = 50. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_1971169. Max = 42. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2034667. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2173031. Max = 34. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2279344. Max = 30. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2623423. Max = 30. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2853942. Max = 19. Number of occurences: 5
+
+
+
+
+
+
+Difference between times seem too large in entry_2980686. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3203092. Max = 30. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3328114. Max = 28. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_345998. Max = 31. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3641902. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3671162. Max = 30. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3683074. Max = 28. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3862516. Max = 30. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4105953. Max = 21. Number of occurences: 3
+
+
+
+
+
+
+Difference between times seem too large in entry_4181356. Max = 95. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4330428. Max = 99. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4557402. Max = 30. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4861571. Max = 31. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5087927. Max = 18. Number of occurences: 2
+
+
+
+
+
+
+Difference between times seem too large in entry_5193257. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5240637. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5403868. Max = 30. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_6186435. Max = 29. Number of occurences: 10
+
+
+
+Root Mean Squared Error entre os tempos medidos: 23.64704659148791
+
+
+
+
+RMSE difference between times seem too large
+
+
+
+Gordura (desvio do erro) da reta calculada:0.2288358796661035
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.9420788884162903, pvalue=0.10348132997751236)
+		Segue uma distribuição normal com confiança de 95%
+elite\perf\1071-Number_Spiral-java-sing-perf-elite-rand30-27-07-2024-00-48.csv
+Coeficiente R2: 0.9957092285038962
+Coeficiente Spearman: 0.9955506117908788
+	interesse low: entry_2348109. Abaixo
+
+Processando think\perf\1071-Number_Spiral-java-sing-perf-think-rand30-27-07-2024-02-10.csv
+
+
+
+Difference between times seem too large in entry_1761399. Max = 55. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_1971169. Max = 144. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2034667. Max = 30. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2173031. Max = 35. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2279344. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2348109. Max = 31. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2484268. Max = 30. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2623423. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2853942. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2980686. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3203092. Max = 28. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3328114. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_345998. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3641902. Max = 31. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3671162. Max = 33. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3683074. Max = 57. Number of occurences: 9
+
+
+
+
+
+
+Difference between times seem too large in entry_3862516. Max = 262. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4105953. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4181356. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4330428. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4557402. Max = 38. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4861571. Max = 31. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5087927. Max = 32. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5193257. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5240637. Max = 28. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5403868. Max = 28. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5629053. Max = 31. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5807079. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5819758. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_6186435. Max = 30. Number of occurences: 10
+
+
+
+Root Mean Squared Error entre os tempos medidos: 27.212263626289282
+
+
+
+
+RMSE difference between times seem too large
+
+
+
+Gordura (desvio do erro) da reta calculada:0.2661796951472034
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.9457988739013672, pvalue=0.13035701215267181)
+		Segue uma distribuição normal com confiança de 95%
+think\perf\1071-Number_Spiral-java-sing-perf-think-rand30-27-07-2024-02-10.csv
+Coeficiente R2: 0.9987405521869002
+Coeficiente Spearman: 0.992880978865406
+	interesse low: entry_4557402. Acima
+	interesse low: entry_4861571. Acima
+
+Processando xeon\perf\1071-Number_Spiral-java-sing-perf-xeon-rand30-27-07-2024-10-53.csv
+
+
+
+Difference between times seem too large in entry_1761399. Max = 65. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_1971169. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2034667. Max = 32. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2173031. Max = 33. Number of occurences: 8
+
+
+
+
+
+
+Difference between times seem too large in entry_2279344. Max = 28. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2623423. Max = 28. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_2980686. Max = 28. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3203092. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3328114. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_345998. Max = 289. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3641902. Max = 31. Number of occurences: 9
+
+
+
+
+
+
+Difference between times seem too large in entry_3671162. Max = 39. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_3683074. Max = 28. Number of occurences: 9
+
+
+
+
+
+
+Difference between times seem too large in entry_3862516. Max = 31. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4181356. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4330428. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4557402. Max = 31. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_4861571. Max = 32. Number of occurences: 8
+
+
+
+
+
+
+Difference between times seem too large in entry_5087927. Max = 19. Number of occurences: 2
+
+
+
+
+
+
+Difference between times seem too large in entry_5193257. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5240637. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_5403868. Max = 29. Number of occurences: 10
+
+
+
+
+
+
+Difference between times seem too large in entry_6186435. Max = 31. Number of occurences: 10
+
+
+
+Root Mean Squared Error entre os tempos medidos: 22.763022829433996
+
+
+
+
+RMSE difference between times seem too large
+
+
+
+Gordura (desvio do erro) da reta calculada:0.1396374106540358
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.9464386701583862, pvalue=0.13563291728496552)
+		Segue uma distribuição normal com confiança de 95%
+xeon\perf\1071-Number_Spiral-java-sing-perf-xeon-rand30-27-07-2024-10-53.csv
+Coeficiente R2: 0.999694449378323
+Coeficiente Spearman: 0.9984423923200177
+
+linear coefficients:
+0.00000	0.00000	0.00000	0.00000	0.00000	0.00000	
+tempos medios das solucoes:
+971.60000	1271.53750	1430.53750	806.79167	1002.90417	1100.85417	
+consumo medio:
+8.81776	18.37564	12.24193	9.57835	18.43035	14.26716	
+slopes:
+
+Coeficientes R2:
+Coeficientes Spearman:
+Gordura (desvio do erro) da reta calculada:
+
+0.00910	0.01444	0.00867	0.01187	0.01839	0.01299	
+0.99714	0.99441	0.98086	0.99571	0.99874	0.99969	
+0.92758	0.98754	0.95373	0.99555	0.99288	0.99844	
+0.19165	0.53555	0.83717	0.22884	0.26618	0.13964	
+
+Correlaçaõ entre os tempos:0.93411	0.97293	0.91711	0.99945	0.99999	0.99965	
+
+Busca por ouliers de uma mesma solucao em máquinas diferentes

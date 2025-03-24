@@ -1,0 +1,116 @@
+
+Processando elite\perf\1071-Number_Spiral-c++-mult-perf-elite-rand30-26-07-2024-06-48.csv
+Root Mean Squared Error entre os tempos medidos: 0.2531057091414573
+Gordura (desvio do erro) da reta calculada:0.06480277543934564
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.850773811340332, pvalue=0.0006436238763853908)
+		Não podemos afirmar que segue uma distribuição normal
+elite\perf\1071-Number_Spiral-c++-mult-perf-elite-rand30-26-07-2024-06-48.csv
+Coeficiente R2: 0.9963446650881047
+Coeficiente Spearman: 0.9205080471473063
+	interesse medium: 618530.exe. Abaixo
+
+Processando elite\perf\1071-Number_Spiral-c++-sing-perf-elite-rand30-26-07-2024-14-18.csv
+
+
+
+Difference between times seem too large in 1449665.exe. Max = 17. Number of occurences: 1
+
+
+
+
+
+
+Difference between times seem too large in 1563740.exe. Max = 11. Number of occurences: 1
+
+
+
+
+
+
+Difference between times seem too large in 3986867.exe. Max = 13. Number of occurences: 1
+
+
+
+Root Mean Squared Error entre os tempos medidos: 0.385275875185561
+Gordura (desvio do erro) da reta calculada:0.06778324414132159
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.6945168972015381, pvalue=1.2996458735869965e-06)
+		Não podemos afirmar que segue uma distribuição normal
+elite\perf\1071-Number_Spiral-c++-sing-perf-elite-rand30-26-07-2024-14-18.csv
+Coeficiente R2: 0.9958364442360417
+Coeficiente Spearman: 0.9276175016603274
+	interesse medium: 2633688.exe. Abaixo
+	interesse medium: 618530.exe. Abaixo
+
+Processando think\perf\1071-Number_Spiral-c++-mult-perf-think-rand30-26-07-2024-06-55.csv
+Root Mean Squared Error entre os tempos medidos: 0.13881942707464734
+Gordura (desvio do erro) da reta calculada:0.09959527568671182
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.9643576145172119, pvalue=0.39820751547813416)
+		Segue uma distribuição normal com confiança de 95%
+think\perf\1071-Number_Spiral-c++-mult-perf-think-rand30-26-07-2024-06-55.csv
+Coeficiente R2: 0.9980615998611939
+Coeficiente Spearman: 0.8081887160477612
+
+Processando think\perf\1071-Number_Spiral-c++-sing-perf-think-rand30-26-07-2024-15-06.csv
+Root Mean Squared Error entre os tempos medidos: 0.5867459700188262
+Gordura (desvio do erro) da reta calculada:0.03542947710025191
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.9492961168289185, pvalue=0.16187216341495514)
+		Segue uma distribuição normal com confiança de 95%
+think\perf\1071-Number_Spiral-c++-sing-perf-think-rand30-26-07-2024-15-06.csv
+Coeficiente R2: 0.9996246371533756
+Coeficiente Spearman: 0.9426950564180886
+
+Processando xeon\perf\1071-Number_Spiral-c++-mult-perf-xeon-rand30-26-07-2024-15-42.csv
+Root Mean Squared Error entre os tempos medidos: 0.2116404183200049
+Gordura (desvio do erro) da reta calculada:0.05514642191894458
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.9768478870391846, pvalue=0.7369996905326843)
+		Segue uma distribuição normal com confiança de 95%
+xeon\perf\1071-Number_Spiral-c++-mult-perf-xeon-rand30-26-07-2024-15-42.csv
+Coeficiente R2: 0.9994072676732731
+Coeficiente Spearman: 0.9768631813125696
+	interesse low: 2806108.exe. Abaixo
+
+Processando xeon\perf\1071-Number_Spiral-c++-sing-perf-xeon-rand30-26-07-2024-19-22.csv
+
+
+
+Difference between times seem too large in 5856149.exe. Max = 89. Number of occurences: 2
+
+
+
+
+
+
+Difference between times seem too large in 5857120.exe. Max = 250. Number of occurences: 1
+
+
+
+Root Mean Squared Error entre os tempos medidos: 0.5645794895318107
+Gordura (desvio do erro) da reta calculada:0.00853626673754867
+Confiança de que o erro segue uma distribuição normal: ShapiroResult(statistic=0.9590548276901245, pvalue=0.29295310378074646)
+		Segue uma distribuição normal com confiança de 95%
+xeon\perf\1071-Number_Spiral-c++-sing-perf-xeon-rand30-26-07-2024-19-22.csv
+Coeficiente R2: 0.9999744166708614
+Coeficiente Spearman: 0.9597868406408925
+	interesse low: 1449665.exe. Abaixo
+	interesse low: 5856149.exe. Acima
+
+linear coefficients:
+0.00000	0.00000	0.00000	0.00000	0.00000	0.00000	
+tempos medios das solucoes:
+195.79583	193.35417	218.53750	207.92917	279.93333	265.80833	
+consumo medio:
+2.24535	2.19259	3.54434	3.75520	3.70554	3.50365	
+slopes:
+
+Coeficientes R2:
+Coeficientes Spearman:
+Gordura (desvio do erro) da reta calculada:
+
+0.01148	0.01134	0.01633	0.01805	0.01329	0.01318	
+0.99634	0.99584	0.99806	0.99962	0.99941	0.99997	
+0.92051	0.92762	0.80819	0.94270	0.97686	0.95979	
+0.06480	0.06778	0.09960	0.03543	0.05515	0.00854	
+
+Correlaçaõ entre os tempos:1.00000	0.99999	1.00000	0.99999	1.00000	0.99999	
+
+Busca por ouliers de uma mesma solucao em máquinas diferentes
